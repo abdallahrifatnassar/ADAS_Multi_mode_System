@@ -74,8 +74,6 @@ void HMOTOR_voidMoveBackward(void);
 -------------------------------------------------------------------*/
 		   
 void HMOTOR_voidStop(void);
-	
-
 
 /*---------------------------------------------------------------------
 |  Method [HMOTOR_voidMoveRight]
@@ -107,10 +105,8 @@ void HMOTOR_voidMoveRight(void);
 -------------------------------------------------------------------*/		   
 void HMOTOR_voidMoveLeft(void);
 
-
-
 /*---------------------------------------------------------------------
-|  Method [MTIMER3_voidSetSpeed]
+|  Method [HMOTOR_voidSetSpeed]
 |
 |  Purpose: [This function responsible For setting the motor Speed of rotation]
 |
@@ -123,7 +119,7 @@ void HMOTOR_voidMoveLeft(void);
 |
 |  Returns:  N/A
 -------------------------------------------------------------------*/	
-void MTIMER3_voidSetSpeed(u16 Copy_u16Speed);
+void HMOTOR_voidSetSpeed(u16 Copy_u16Speed);
 
 /**********************************************************/
 #endif
