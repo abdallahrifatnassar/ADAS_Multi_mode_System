@@ -28,6 +28,6 @@
 /************************/
 /*Motors Speed Pins in Pair(PORT,PIN),Note that it Must be one of Timer3 Channels
 (PB0,PB1,PB4,PB5,PA6,PA7) */
-#define MOTOR_EN_PORT_PIN
+#define MOTOR_EN_CHANNEL
 
 #endif

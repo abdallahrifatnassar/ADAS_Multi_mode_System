@@ -104,5 +104,5 @@ void HMOTOR_voidSetSpeed(u16 Copy_u16Speed)
 {
 	/*Set Compare Match Value to adjust Pwm(SPeed)*/
 	
-	MTIMER3_voidSetCompareValue(/*Timer Channel*/,Copy_u16Speed);
+	MTIMER3_voidSetCompareValue(MOTOR_EN_CHANNEL,Copy_u16Speed);
 }
