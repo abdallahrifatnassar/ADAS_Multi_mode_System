@@ -65,7 +65,7 @@ void TIM2_IRQHandler(void)
 }
 
 
-/*in case of you are haniok and dont want to use extern */
+/*in case of you dont want to use extern */
 u32 HULTRASONIC_u32Distance(void)
 {
 	return Global_u32Distance;
