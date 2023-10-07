@@ -121,3 +121,133 @@ void MTIMER3_voidSetPreScaler(u16 Copy_u16PrescalerValue)
 {
 	TIMER3->PSC=Copy_u16PrescalerValue;
 }
+
+
+
+void MTIMER2_voidInit(u8 Copy_u8ChannelId)
+{
+	// Edge-aligned mode. The counter counts up or down depending on the direction bit
+	CLEAR_BIT(TIMER2->CR1,CMS1);
+	CLEAR_BIT(TIMER2->CR1,1<<CMS1);  
+	//Counter used as upcounter
+	CLEAR_BIT(TIMER2->CR1,DIR);		
+	switch(Copy_u8ChannelId)
+	{
+		case TIMER2_CHANNEL1:
+		{
+			//01: CC1 channel is configured as input, IC1 is mapped on TI1
+			SET_BIT(TIMER2->CCMR1,CC1S0);			
+			CLEAR_BIT(TIMER2->CCMR1,CC1S1);	
+			/*00: no prescaler, capture is done each time an edge is detected on the  
+			capture inpuT*/		
+			CLEAR_BIT(TIMER2->CCMR1,IC1PSC0);
+			CLEAR_BIT(TIMER2->CCMR1,IC1PSC1);
+			//11: noninverted/both edges
+			SET_BIT(TIMER2->CCER,CC1P);	
+			SET_BIT(TIMER2->CCER,CC1NP);
+			//Enable Capture
+			SET_BIT(TIMER2->CCER,CC1E);
+		}break;
+		case TIMER2_CHANNEL2:
+		{
+			//01: CC1 channel is configured as input, IC2 is mapped on TI2
+			SET_BIT(TIMER2->CCMR1,CC2S8);			
+			CLEAR_BIT(TIMER2->CCMR1,CC2S9);	
+			/*00: no prescaler, capture is done each time an edge is detected on the 
+			capture inpuT*/		
+			CLEAR_BIT(TIMER2->CCMR1,IC2PSC10);
+			CLEAR_BIT(TIMER2->CCMR1,IC2PSC10);
+			//11: noninverted/both edges
+			SET_BIT(TIMER2->CCER,CC2P);	
+			SET_BIT(TIMER2->CCER,CC2NP);
+			//Enable Capture
+			SET_BIT(TIMER2->CCER,CC2E);			
+		}break;
+		
+		case TIMER2_CHANNEL3:
+		{
+			//01: CC1 channel is configured as input, IC2 is mapped on TI2
+			SET_BIT(TIMER2->CCMR2,CC3S0);			
+			CLEAR_BIT(TIMER2->CCMR2,CC3S1);	
+			/*00: no prescaler, capture is done each time an edge is detected on the 
+			capture inpuT*/		
+			CLEAR_BIT(TIMER2->CCMR2,IC2PSC10);
+			CLEAR_BIT(TIMER2->CCMR2,IC2PSC10);
+			//11: noninverted/both edges
+			SET_BIT(TIMER2->CCER,CC3P);	
+			SET_BIT(TIMER2->CCER,CC3NP);
+			//Enable Capture
+			SET_BIT(TIMER2->CCER,CC3E);
+		}break;
+		case TIMER2_CHANNEL4:
+		{
+			//01: CC1 channel is configured as input, IC2 is mapped on TI2
+			SET_BIT(TIMER2->CCMR2,CC4S8);			
+			CLEAR_BIT(TIMER2->CCMR2,CC4S9);	
+			/*00: no prescaler, capture is done each time an edge is detected on the 
+			capture inpuT*/		
+			CLEAR_BIT(TIMER2->CCMR2,IC4PSC10);
+			CLEAR_BIT(TIMER2->CCMR2,IC4PSC11);
+			//11: noninverted/both edges
+			SET_BIT(TIMER2->CCER,CC4P);	
+			SET_BIT(TIMER2->CCER,CC4NP);
+			//Enable Capture
+			SET_BIT(TIMER2->CCER,CC4E);			
+		}break;
+	}
+}
+void MTIMER2_voidStartTimer(void)
+{
+	/*Enable Counter*/
+	CLEAR_BIT(TIMER2->CR1,CEN);	
+}
+void MTIMER2_voidStopTimer(void)
+{
+	/*Disable Counter*/
+	CLEAR_BIT(TIMER2->CR1,CEN);
+}
+
+u32	 MTIMER2_u32CaptureValue(u8 Copy_u8ChannelId)
+{
+	u32 Local_u32CaptureValue=0;
+	switch(Copy_u8ChannelId)
+	{
+		case TIMER2_CHANNEL1:
+		{
+			Local_u32CaptureValue=TIM2->CCR1;
+		}break;
+		case TIMER2_CHANNEL2:
+		{
+			Local_u32CaptureValue=TIM2->CCR2;
+		}break;
+		case TIMER2_CHANNEL3:
+		{
+			Local_u32CaptureValue=TIM2->CCR3;
+		}break;
+		case TIMER2_CHANNEL4:
+		{
+			Local_u32CaptureValue=TIM2->CCR4;	
+		}break;
+	}
+	return	Local_u32CaptureValue;	
+}
+void MTIMER2_voidEnableInterrupt(void)
+{
+	/*Enable interrupt*/
+	SET_BIT(TIMER2->DIER,CC1IE);
+}
+void MTIMER2_voidDisableInterrupt(void)
+{
+	/*Disable interrupt*/
+	CLEAR_BIT(TIMER2->DIER,CC1IE);
+}
+
+void MTIMER2_voidSetPreScaler(u16 Copy_u16PrescalerValue)
+{
+	TIMER2->PSC=Copy_u16PrescalerValue;
+}
+
+void MTIMER2_voidClearCount(void)
+{
+	TIMER2->CNT=0;
+}
