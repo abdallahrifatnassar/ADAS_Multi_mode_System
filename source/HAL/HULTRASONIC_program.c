@@ -59,9 +59,11 @@ void TIM2_IRQHandler(void)
 		
 	}
 	
-	/*34 is speed of sound 34cm/ms */
+	/*34 is speed of sound 34cm/ms=0.034 cm/us */
 	/*Distance=SpeedofSound*Time)/2 */
-	Global_u32Distance=(((34 * (Local_u32FinalValue-Local_u32initalValue)*TickTime))/2);	
+	/*for ex: Timer 2 freq =8MHZ ,PreScaler=64,TickTime=64/8=8  MicroSeconnd*/
+	/*Global_u32Distance=(((0.034 * (Local_u32FinalValue-Local_u32initalValue)*8))/2);	*/
+	Global_u32Distance=(0.136 * (Local_u32FinalValue-Local_u32initalValue));
 }
 
 
