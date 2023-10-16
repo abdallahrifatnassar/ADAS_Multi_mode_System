@@ -118,11 +118,39 @@ void MTIMER3_voidSetPeriodValue(u16 Copy_u16PeriodValue);
 void MTIMER3_voidSetPreScaler(u16 Copy_u16PrescalerValue);
 
 
+
+
+
+/*****************APIS Made By FahkerEldin ********************/
+void MTIMER2_voidInit(u8 Copy_u8ChannelId);
+
+void MTIMER2_voidStartTimer(void);
+
+void MTIMER2_voidStopTimer(void);
+
+u32	 MTIMER2_u32CaptureValue(u8 Copy_u8ChannelId);
+
+void MTIMER2_voidEnableInterrupt(void);
+
+void MTIMER2_voidDisableInterrupt(void);
+
+
+void MTIMER2_voidSetPreScaler(u16 Copy_u16PrescalerValue);
+
+void MTIMER2_voidClearCount(void);
+
+
+
 /*****Options Macros*****/
 #define TIMER3_CHANNEL1			1
 #define TIMER3_CHANNEL2			2
 #define TIMER3_CHANNEL3			3
 #define TIMER3_CHANNEL4			4
+
+#define TIMER2_CHANNEL1			1
+#define TIMER2_CHANNEL2			2
+#define TIMER2_CHANNEL3			3
+#define TIMER2_CHANNEL4			4
 
 
 /************************/

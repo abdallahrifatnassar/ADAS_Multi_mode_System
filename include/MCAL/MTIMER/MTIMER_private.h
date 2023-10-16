@@ -74,4 +74,38 @@ typedef struct
 #define CC3E			8
 #define CC4E			12
 
+
+
+#define	CC1S0			0
+#define	CC1S1			1
+#define	CC2S8			8
+#define	CC2S9			9
+#define	CC3S0			0
+#define	CC3S1			1
+#define	CC4S8			8
+#define	CC4S9			9
+
+#define IC1PSC0			0
+#define IC1PSC1			1
+#define	IC2PSC10		10
+#define	IC2PSC11		11
+#define	IC31PSC0		0	
+#define	IC31PSC1        1
+#define	IC4PSC10        10
+#define	IC4PSC11        11
+/*EDGES configration*/
+#define	CC1P			1
+#define	CC1NP			3
+#define	CC2P			5
+#define	CC2NP			7
+#define	CC3P			9
+#define	CC3NP			11
+#define	CC4P			13
+#define	CC4NP			15
+/*Interrupt bits enable in DIER*/
+#define CC1IE			1
+#define CC2IE			2
+#define CC3IE			3
+#define CC4IE			4
+
 #endif
