@@ -214,19 +214,19 @@ u32	 MTIMER2_u32CaptureValue(u8 Copy_u8ChannelId)
 	{
 		case TIMER2_CHANNEL1:
 		{
-			Local_u32CaptureValue=TIM2->CCR1;
+			Local_u32CaptureValue=TIMER2->CCR1;
 		}break;
 		case TIMER2_CHANNEL2:
 		{
-			Local_u32CaptureValue=TIM2->CCR2;
+			Local_u32CaptureValue=TIMER2->CCR2;
 		}break;
 		case TIMER2_CHANNEL3:
 		{
-			Local_u32CaptureValue=TIM2->CCR3;
+			Local_u32CaptureValue=TIMER2->CCR3;
 		}break;
 		case TIMER2_CHANNEL4:
 		{
-			Local_u32CaptureValue=TIM2->CCR4;	
+			Local_u32CaptureValue=TIMER2->CCR4;	
 		}break;
 	}
 	return	Local_u32CaptureValue;	
