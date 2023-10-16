@@ -10,7 +10,9 @@
 #ifndef MUART_CONFIG_H_
 #define MUART_CONFIG_H_
 
-#define UART_BAUD_RATE	9600
+/*Baud Rate 9600   = 0x682 */
+/*Baud Rate 115200 = 0x0811*/
+#define UART_BAUD_RATE	0x682
 
 /* 
 FOR 2 STOP BITS SET VALUE TO 2
