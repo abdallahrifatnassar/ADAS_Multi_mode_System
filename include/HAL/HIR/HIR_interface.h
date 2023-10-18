@@ -39,6 +39,4 @@ void HIR_voidInit(u8 Copy_u8Port, u8 Copy_u8Pin);
 
 u8 HIR_u8ReadIR(u8 Copy_u8Port, u8 Copy_u8Pin);
 
-void HIR_voidSetCallBack(void *ptr(void));
-
 #endif

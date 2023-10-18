@@ -18,6 +18,8 @@
 #include "HIR_private.h"
 #include "HIR_interface.h"
 
+static void (* G_voidpfUserFunction) (void) = NULL_POINTER;
+
 void HIR_voidInit(u8 Copy_u8Port, u8 Copy_u8Pin)
 {
     MGPIO_voidSetPinMode(Copy_u8Port, Copy_u8Pin, MGPIO_PIN_INPUT);
@@ -30,3 +32,5 @@ u8 HIR_u8ReadIR(u8 Copy_u8Port, u8 Copy_u8Pin)
     L_u8Read = MGPIO_u8GetPinValue(Copy_u8Port, Copy_u8Pin);
     return L_u8Read;
 }
+
+
