@@ -12,6 +12,7 @@
 
 /* MCAL INCLUDES */
 #include "MGPIO_interface.h"
+#include "MRCC_interface.h"
 
 /* HAL INCLUDES */
 #include "HIR_config.h"
