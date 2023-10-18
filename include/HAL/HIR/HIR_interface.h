@@ -35,7 +35,9 @@
 #define HIR_PIN15 15
 /************************/
 
-void HIR_voidInit(u8 Copy_u8Port, u8 Copy_u8Pin);
+void HIR_voidInit(u8 Copy_u8Port);
+
+void HIR_SetPin(u8 Copy_u8Port, u8 Copy_u8Pin);
 
 u8 HIR_u8ReadIR(u8 Copy_u8Port, u8 Copy_u8Pin);
 

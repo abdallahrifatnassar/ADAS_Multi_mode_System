@@ -18,9 +18,14 @@
 #include "HIR_private.h"
 #include "HIR_interface.h"
 
-static void (* G_voidpfUserFunction) (void) = NULL_POINTER;
+void HIR_voidInit(u8 Copy_u8Port)
+{
+    MRCC_voidInit();
+    
+	MRCC_voidEnablePeripheral(AHB1_BUS,Copy_u8Port-1);
+}
 
-void HIR_voidInit(u8 Copy_u8Port, u8 Copy_u8Pin)
+void HIR_SetPin(u8 Copy_u8Port, u8 Copy_u8Pin)
 {
     MGPIO_voidSetPinMode(Copy_u8Port, Copy_u8Pin, MGPIO_PIN_INPUT);
     MGPIO_voidSetPinPullType(Copy_u8Port, Copy_u8Pin, MGPIO_PULL_UP);
