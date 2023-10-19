@@ -302,19 +302,20 @@ void MGPIO_voidSetAlternateFunction(u8 Copy_u8Port,u8 Copy_u8Pin,u8 Copy_u8AltFu
 		case MGPIO_PORTA:
 		{
 			// check the number of pin to choose which register
-			if(Copy_u8AltFunction<8)
+			if(Copy_u8Pin<8)
 			{
 				// clear the value of the location first
 				GPIOA->AFRL&=~(MGPIO_ALTFUNCTION_MASK<<(Copy_u8Pin*4));
 				// set the value of the alternate function
 				GPIOA->AFRL|=(Copy_u8AltFunction<<(Copy_u8Pin*4));
 			}
-			else if(Copy_u8AltFunction<16)
+			else if(Copy_u8Pin<16)
 			{
+				Copy_u8Pin-=8;
 				// clear the value of the location first
 				GPIOA->AFRH&=~(MGPIO_ALTFUNCTION_MASK<<(Copy_u8Pin*4));
 				// set the value of the alternate function
-				GPIOA->AFRH=(Copy_u8AltFunction<<(Copy_u8Pin*4));
+				GPIOA->AFRH|=(Copy_u8AltFunction<<(Copy_u8Pin*4));
 			}
 			else
 			{
@@ -324,19 +325,20 @@ void MGPIO_voidSetAlternateFunction(u8 Copy_u8Port,u8 Copy_u8Pin,u8 Copy_u8AltFu
 		}
 		case MGPIO_PORTB:
 		{
-			if(Copy_u8AltFunction<8)
+			if(Copy_u8Pin<8)
 			{
 				// clear the value of the location first
 				GPIOB->AFRL&=~(MGPIO_ALTFUNCTION_MASK<<(Copy_u8Pin*4));
 				// set the value of the alternate function
 				GPIOB->AFRL|=(Copy_u8AltFunction<<(Copy_u8Pin*4));
 			}
-			else if(Copy_u8AltFunction<16)
+			else if(Copy_u8Pin<16)
 			{
+				Copy_u8Pin-=8;
 				// clear the value of the location first
 				GPIOB->AFRH&=~(MGPIO_ALTFUNCTION_MASK<<(Copy_u8Pin*4));
 				// set the value of the alternate function
-				GPIOB->AFRH=(Copy_u8AltFunction<<(Copy_u8Pin*4));
+				GPIOB->AFRH|=(Copy_u8AltFunction<<(Copy_u8Pin*4));
 			}
 			else
 			{
@@ -346,19 +348,20 @@ void MGPIO_voidSetAlternateFunction(u8 Copy_u8Port,u8 Copy_u8Pin,u8 Copy_u8AltFu
 		}
 		case MGPIO_PORTC:
 		{
-			if(Copy_u8AltFunction<8)
+			if(Copy_u8Pin<8)
 			{
 				// clear the value of the location first
 				GPIOC->AFRL&=~(MGPIO_ALTFUNCTION_MASK<<(Copy_u8Pin*4));
 				// set the value of the alternate function
 				GPIOC->AFRL|=(Copy_u8AltFunction<<(Copy_u8Pin*4));
 			}
-			else if(Copy_u8AltFunction<16)
+			else if(Copy_u8Pin<16)
 			{
+				Copy_u8Pin-=8;
 				// clear the value of the location first
 				GPIOC->AFRH&=~(MGPIO_ALTFUNCTION_MASK<<(Copy_u8Pin*4));
 				// set the value of the alternate function
-				GPIOC->AFRH=(Copy_u8AltFunction<<(Copy_u8Pin*4));
+				GPIOC->AFRH|=(Copy_u8AltFunction<<(Copy_u8Pin*4));
 			}
 			else
 			{
