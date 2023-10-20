@@ -14,15 +14,16 @@
 
 /************************/
 /*UltraSonic Trigger Pins Write it in Pair (PORT,PIN)*/
-#define ULTRASONIC_TRIGGER_PORT_PIN			/*MGPIO_PORTA,MGPIO_PORTB,MGPIO_PORTC,MGPIO_PIN(0->15)Except Portc*/
+/*MGPIO_PORTA,MGPIO_PORTB,MGPIO_PORTC,MGPIO_PIN(0->15)Except Portc*/
+#define ULTRASONIC_TRIGGER_PORT_PIN     (MGPIO_PORTA,MGPIO_PIN0)	
 
 /*UltraSonic Echo Pins Write it in Pair (PORT,PIN)*,Note that it Must be one of Timer2 Channels
 (PA0,PA1,PA2,PA3,PA15,PB3,PB10) */
-#define ULTRASONIC_ECHO_PORT_PIN
+#define ULTRASONIC_ECHO_PORT_PIN        (MGPIO_PORTA,MGPIO_PIN1)
 
 
 /*TIMER2_CHANNEL1->4*/
-#define ULTRASONIC_ECHO_CHANNEL 
+#define ULTRASONIC_ECHO_CHANNEL         TIMER2_CHANNEL1
 
 
 #endif

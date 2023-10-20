@@ -55,7 +55,7 @@ void TIM2_IRQHandler(void)
 	else
 	{
 		/* Second time Echo Low */
-		Local_u32FinalValue = MTIMER2_u32CaptureValue(ULTRASONIC_ECHO_CHANNEL);
+		Local_u32FinalValue =MTIMER2_u32CaptureValue(ULTRASONIC_ECHO_CHANNEL);
 		Local_u8Flag=0;
 		
 	}
