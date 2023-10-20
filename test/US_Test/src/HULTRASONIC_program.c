@@ -29,17 +29,18 @@ void HULTRASONIC_voidInit(void)
 	MGPIO_voidSetOutputPinSpeed(ULTRASONIC_TRIGGER_PORT_PIN,MGPIO_MEDIUMSPEED);
 	
 	/* Set Echo Pin to altrenate function of timer2 */
-	MGPIO_voidSetPinMode(ULTRASONIC_ECHO_PORT_PIN,MGPIO_PIN_ALTRENATE_FUNCTION);
-	MGPIO_voidSetAlternateFunction(ULTRASONIC_ECHO_PORT_PIN,1);
+//	MGPIO_voidSetPinMode(ULTRASONIC_ECHO_PORT_PIN,MGPIO_PIN_ALTRENATE_FUNCTION);
+//	MGPIO_voidSetAlternateFunction(ULTRASONIC_ECHO_PORT_PIN,1);
 }
 
 void HULTRASONIC_voidGetDistance(void)
 {
 	/* Make Trigger Pin to High for 10us the Low*/
 	/* Make Timer 2 Count From Zero*/
-	MTIMER2_voidClearCount();
+	//MTIMER2_voidClearCount();
+	MGPIO_voidSetPinValue(ULTRASONIC_TRIGGER_PORT_PIN,MGPIO_PIN_LOW);
 	MGPIO_voidSetPinValue(ULTRASONIC_TRIGGER_PORT_PIN,MGPIO_PIN_HIGH);
-	MSYSTICK_voidSetDelay(10);
+	MSYSTICK_voidSetDelay(100);
 	MGPIO_voidSetPinValue(ULTRASONIC_TRIGGER_PORT_PIN,MGPIO_PIN_LOW);
 }
 
