@@ -75,7 +75,7 @@ int main ()
 	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN7,MGPIO_PIN_HIGH);
 
 	MTIMER2_voidEnableInterrupt();
-	MTIMER2_voidStartTimer();
+	
 
 
 
