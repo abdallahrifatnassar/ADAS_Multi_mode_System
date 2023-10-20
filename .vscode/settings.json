@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "hir_interface.h": "c",
-        "hir_private.h": "c"
+        "hir_private.h": "c",
+        "hultrasonic_interface.h": "c"
     }
 }
