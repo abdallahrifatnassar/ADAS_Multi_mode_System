@@ -62,27 +62,19 @@ int main ()
 
 
 	MTIMER2_voidInit(TIMER2_CHANNEL1);
-	MTIMER2_voidSetPreScaler(64);
+	MTIMER2_voidSetPreScaler(2);
 
 
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN0,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN1,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN2,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN3,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN4,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN5,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN6,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MGPIO_PORTB,MGPIO_PIN7,MGPIO_PIN_HIGH);
 
 	MTIMER2_voidEnableInterrupt();
-	
+
 
 
 
 	while (1)
 	{
 
-		char distanceArr[5]={0};
+		 char distanceArr[5]={0};
 
 		HULTRASONIC_voidGetDistance();
 		Global_u32MeauredDistance=HULTRASONIC_u32Distance();
@@ -206,7 +198,7 @@ int main ()
 			MSYSTICK_voidSetDelay(30);
 
 		}
-	return 0;
+
 
 	}
 
