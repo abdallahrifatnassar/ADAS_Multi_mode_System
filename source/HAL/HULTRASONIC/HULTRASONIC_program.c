@@ -46,18 +46,20 @@ void HULTRASONIC_voidGetDistance(void)
 void TIM2_IRQHandler(void)
 {
 	volatile static u8 Local_u8Flag=0;
+	
 	if(0==Local_u8Flag)
 	{
+		MTIMER2_voidStartTimer();
 		/* First time Echo high */
-		Local_u32initalValue=MTIMER2_u32CaptureValue(ULTRASONIC_ECHO_CHANNEL);
-		Local_u8Flag=1;
+		Local_u32initalValue = MTIMER2_u32CaptureValue(ULTRASONIC_ECHO_CHANNEL);
+		Local_u8Flag = 1;
 	}
 	else
 	{
 		/* Second time Echo Low */
-		Local_u32FinalValue =MTIMER2_u32CaptureValue(ULTRASONIC_ECHO_CHANNEL);
-		Local_u8Flag=0;
-		
+		Local_u32FinalValue = MTIMER2_u32CaptureValue(ULTRASONIC_ECHO_CHANNEL);
+		Local_u8Flag = 0;
+		MTIMER2_voidStopTimer();
 	}
 	
 	/* 34 is speed of sound 34cm/ms=0.034 cm/us */
