@@ -38,7 +38,7 @@
 
 /********Pins Modes******/
 #define MGPIO_PIN_INPUT						0
-#define MGPIO_PIN_OUPUT						1
+#define MGPIO_PIN_OUTPUT					1
 #define MGPIO_PIN_ALTRENATE_FUNCTION		2
 #define MGPIO_PIN_ANALOG					3
 /************************/
