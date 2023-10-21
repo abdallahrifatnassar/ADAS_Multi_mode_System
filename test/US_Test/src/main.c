@@ -30,6 +30,8 @@ int main ()
 {
 
 	MRCC_voidInit();
+	MSYSTICK_voidInit();
+	
 	MRCC_voidEnablePeripheral(AHB1_BUS,GPIOAEN);
 	MRCC_voidEnablePeripheral(AHB1_BUS,GPIOBEN);
 	MRCC_voidEnablePeripheral(APB1_BUS,TIM2EN);
@@ -57,7 +59,7 @@ int main ()
 
 	MNVIC_voidEnablePeripheralInterrupt(28); /*Enable Timer 2 interrupt*/
 
-	MSYSTICK_voidInit();
+	
 	HULTRASONIC_voidInit();
 
 
