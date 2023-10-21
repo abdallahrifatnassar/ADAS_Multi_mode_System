@@ -208,6 +208,7 @@ void MTIMER2_voidStopTimer(void)
 	CLEAR_BIT(TIMER2->CR1,CEN);
 }
 
+
 u32	 MTIMER2_u32CaptureValue(u8 Copy_u8ChannelId)
 {
 	u32 Local_u32CaptureValue=0;
