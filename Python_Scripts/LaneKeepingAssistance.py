@@ -9,7 +9,7 @@ def GetLaneCurve(img):
     cv2.imshow('Thres', imgThres)
     return None
 
-if __name__ == " __main__":
+
 cap = cv2.VideoCapture('vid1.mp4')
 while True:
     success, img = cap.read()
