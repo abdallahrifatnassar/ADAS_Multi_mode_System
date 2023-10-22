@@ -1,7 +1,9 @@
 {
     "files.associations": {
+        "*.embeddedhtml": "html",
         "hir_interface.h": "c",
         "hir_private.h": "c",
-        "hultrasonic_interface.h": "c"
+        "hultrasonic_interface.h": "c",
+        "lbit_math.h": "c"
     }
 }
