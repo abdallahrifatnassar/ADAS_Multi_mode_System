@@ -7,7 +7,6 @@ def GetLaneCurve(img):
 
     ### STEP 1
     imgThres = utils.thresholding(img);
-    # cv2.imshow('Thres', imgThres);
 
     ### STEP 2
     h,w,c = img.shape;

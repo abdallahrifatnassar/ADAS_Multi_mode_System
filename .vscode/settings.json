@@ -5,5 +5,8 @@
         "hir_private.h": "c",
         "hultrasonic_interface.h": "c",
         "lbit_math.h": "c"
-    }
+    },
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master"
+    ]
 }
