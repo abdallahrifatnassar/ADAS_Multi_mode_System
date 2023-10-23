@@ -8,16 +8,6 @@ def GetLaneCurve(img):
     ### STEP 1
     imgThres = utils.thresholding(img);
 
-<<<<<<< HEAD
-
-cap = cv2.VideoCapture('vid1.mp4')
-while True:
-    success, img = cap.read()
-    img = cv2.resize(img, (480, 240))
-    GetLaneCurve(img)
-    cv2.imshow('Vid', img)
-    cv2.waitKey(10)
-=======
     ### STEP 2
     h,w,c = img.shape;
     points = utils.valTrackbars();
@@ -32,7 +22,7 @@ while True:
 
 
 if __name__ == '__main__':
-    cap = cv2.VideoCapture('vid1.mp4')
+    cap = cv2.VideoCapture('vid1.mp4');
     intialTrackBarVal = [163, 150, 129, 194];
     utils.initializeTrackbars(intialTrackBarVal);
     while True:
@@ -41,4 +31,3 @@ if __name__ == '__main__':
         GetLaneCurve(img);
         cv2.imshow('Vid', img);
         cv2.waitKey(50);
->>>>>>> f9b1cdc49a89043cc53394d9d53862bec0f3b2d3
