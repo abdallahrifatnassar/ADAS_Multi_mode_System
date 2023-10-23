@@ -21,7 +21,7 @@ cv2.createTrackbar("SAT Max", "HSV", 255, 255, empty)
 cv2.createTrackbar("VALUE Min", "HSV", 0, 255, empty)
 cv2.createTrackbar("VALUE Max", "HSV", 255, 255, empty)
 
-cap = cv2.VideoCapture('vid1.mp4')
+cap = cv2.VideoCapture('vid2.mp4')
 frameCounter = 0
 
 while True:

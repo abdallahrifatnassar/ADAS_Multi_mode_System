@@ -5,8 +5,8 @@ import numpy as np
 def thresholding(img):
     imghsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV);
     # edged= cv2.Canny(imghsv,30,200);
-    lowerwhite = np.array([0, 0, 79])
-    upperwhite = np.array([78, 72, 117])
+    lowerwhite = np.array([0, 0, 153])
+    upperwhite = np.array([179, 20, 255])
     maskwhite = cv2.inRange(imghsv, lowerwhite, upperwhite)
     return maskwhite;
 
@@ -44,3 +44,22 @@ def drawPoints(img,points):
     for x in range(4):
         cv2.circle(img, (int(points[x][0]), int(points[x][1])), 15, (0,255,0), cv2.FILLED);
     return img;
+
+
+
+
+
+def getHistogram(img):
+    histValues = np.sum(img,axis=0);
+    print(histValues);
+
+
+
+
+
+
+
+
+
+
+
