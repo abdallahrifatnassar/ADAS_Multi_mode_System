@@ -16,11 +16,12 @@ def GetLaneCurve(img):
     imgWrapPoint = utils.drawPoints(img, points);
 
     ### STEP 3
-    utils.getHistogram(imgwarp);
+    basPoint,imgHist=utils.getHistogram(imgwarp,display=True);
 
     cv2.imshow('Thres', imgThres);
     cv2.imshow('Warp', imgwarp);
     cv2.imshow('Warppoints', imgWrapPoint);
+    cv2.imshow('Histogram', imgHist);
     return None;
 
 
