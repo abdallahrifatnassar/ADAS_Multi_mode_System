@@ -1,4 +1,4 @@
-src/stm32f4xx_hal_msp.o: ../src/stm32f4xx_hal_msp.c \
+src/stm32f4xx_hal_msp.d: ../src/stm32f4xx_hal_msp.c \
  ../system/include/stm32f4-hal/stm32f4xx_hal.h \
  ../include/stm32f4xx_hal_conf.h \
  ../system/include/stm32f4-hal/stm32f4xx_hal_rcc.h \

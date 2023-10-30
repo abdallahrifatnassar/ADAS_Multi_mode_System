@@ -1,1 +1,1 @@
-system/src/newlib/startup.o: ../system/src/newlib/startup.c
+system/src/newlib/startup.d: ../system/src/newlib/startup.c

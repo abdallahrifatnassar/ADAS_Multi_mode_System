@@ -18,6 +18,4 @@ u8  ALKA_IR_Right();
 u8  ALKA_IR_Left();
 
 
-
-
 #endif
