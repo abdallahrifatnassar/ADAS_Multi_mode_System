@@ -13,6 +13,7 @@
 #include "d:\Embedded Systems required\ARM\ARM-Hackers\Graduation Project\ADAS\ADAS_Multi_mode_System\include\HAL\HMOTORS\HMOTORS_interface.h"
 #include "d:\Embedded Systems required\ARM\ARM-Hackers\Graduation Project\ADAS\ADAS_Multi_mode_System\include\HAL\HULTRASONIC\HULTRASONIC_interface.h"
 #include "D:\Embedded Systems required\ARM\ARM-Hackers\Graduation Project\ADAS\ADAS_Multi_mode_System\include\APP\AEB\AAEB_interface.h"
+#include "d:\Embedded Systems required\ARM\ARM-Hackers\Graduation Project\ADAS\ADAS_Multi_mode_System\include\MCAL\MSYSTICK\MSYSTICK_interface.h"
 /*-------------------------------------------------- Global Variables ------------------------------------------------*/
 u32 G_u32ReadDistance = 0;
 
@@ -28,6 +29,9 @@ void AAEB_void_init(void)
 
 void AAEB_voidMode(void)
 {
+    /* Update the distance */
+    HULTRASONIC_voidGetDistance();
+    MSYSTICK_voidSetDelay(10000000); // Delay 10 seconds*/
     /* Reading the distance between the two cars */
     G_u32ReadDistance = HULTRASONIC_u32Distance();
 
