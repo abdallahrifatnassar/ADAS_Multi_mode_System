@@ -43,7 +43,7 @@ void AAEB_voidMode(void)
 
         /* Update the distance */
         HULTRASONIC_voidGetDistance();
-        MSYSTICK_voidSetDelay(10000000); // Delay 10 seconds*/
+        MSYSTICK_voidSetDelay(5000000); // Delay 10 seconds*/
         G_u32ReadDistance = HULTRASONIC_u32Distance();
     }
 }
