@@ -40,5 +40,10 @@ void AAEB_voidMode(void)
     {
         /* urgent Brake to stop the car avoiding very possible accident */
         HMOTOR_voidStop();
+
+        /* Update the distance */
+        HULTRASONIC_voidGetDistance();
+        MSYSTICK_voidSetDelay(10000000); // Delay 10 seconds*/
+        G_u32ReadDistance = HULTRASONIC_u32Distance();
     }
 }
