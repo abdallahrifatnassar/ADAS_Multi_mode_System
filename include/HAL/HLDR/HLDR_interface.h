@@ -39,6 +39,6 @@ void HLDR_voidInit(u8 Copy_u8Port);
 
 void HLDR_SetPin(u8 Copy_u8Port, u8 Copy_u8Pin);
 
-u8 HLDR_u8ReadIR(u8 Copy_u8Port, u8 Copy_u8Pin);
+u8 HLDR_u8ReadLDR(u8 Copy_u8Port, u8 Copy_u8Pin);
 
 #endif
