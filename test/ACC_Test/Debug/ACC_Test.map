@@ -4316,7 +4316,7 @@ END GROUP
 
 .debug_varnames
  *(.debug_varnames)
-OUTPUT(US_Test.elf elf32-littlearm)
+OUTPUT(ACC_Test.elf elf32-littlearm)
 
 .debug_ranges   0x00000000      0x718
  .debug_ranges  0x00000000       0xe0 ./system/src/stm32f4-hal/stm32f4xx_hal.o

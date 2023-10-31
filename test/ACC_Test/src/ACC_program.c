@@ -12,16 +12,14 @@
 #include "HULTRASONIC_interface.h"
 #include "HMOTORS_interface.h"
 #include "ACC_interface.h"
-
 #include "ACC_private.h"
 #include "ACC_config.h"
 
 /*Global Variable used to get distance*/
-extern u32  Global_u32Distance;
-u16 Local_u16Speed;
+extern u32  Global_u32Distance;;
 void ACC_voidMode(void)
 {
-	  //Local_u16Speed=ACC_MIN_SPEED;
+	static u16 Local_u16Speed=ACC_MIN_SPEED;
 	/*First Calculate The Distace */
 	HULTRASONIC_voidGetDistance();
 	
