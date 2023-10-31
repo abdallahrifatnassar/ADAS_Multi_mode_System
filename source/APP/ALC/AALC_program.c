@@ -27,7 +27,7 @@ void	AALC_voidMode(void)
 	static u8 L_u8ReadLDR;
 	
 	//Get sensor reading
-	L_u8ReadLDR = HLDR_u8ReadLDR();
+	L_u8ReadLDR = HLDR_u8ReadLDR(LDR_PORTPIN);
 	
 	//Turn lights ON or OFF
 	if ( 1 == L_u8ReadLDR)
