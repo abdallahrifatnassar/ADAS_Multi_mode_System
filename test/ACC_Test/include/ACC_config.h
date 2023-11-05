@@ -12,15 +12,15 @@
 
 /*The max value to put on the compare value register*/
 #define ACC_MAX_SPEED			1000
-#define ACC_MIN_SPEED			100/*min speed mean that the car is stoped*/
+#define ACC_MIN_SPEED			40/*min speed mean that the car is stoped*/
 
 /*Distance Macros*/
-#define ACC_MAX_DISTANCE		80
-#define ACC_MIN_DISTANCE		50
-#define ACC_SAFE_DISTANCE		30
+#define ACC_MAX_DISTANCE		60
+#define ACC_MIN_DISTANCE		40
+#define ACC_SAFE_DISTANCE		25
 
 /*Speed Rate change Macro*/
-#define ACC_SPEED_RATE			20
+#define ACC_SPEED_RATE			10
 
 
 
