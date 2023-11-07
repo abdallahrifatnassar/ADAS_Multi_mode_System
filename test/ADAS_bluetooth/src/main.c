@@ -76,7 +76,7 @@ int main ()
 
 
 	HMOTOR_voidInit();
-
+	HMOTOR_voidSetSpeed(500);
 
 	ALKA_IR_Init();
 
@@ -109,14 +109,16 @@ int main ()
 		case	'W'	:
 		{
 			/*ACC	With	AE*/
+
 			HMOTOR_voidMoveForward();
 			ACC_voidMode();
-			MSYSTICK_voidSetDelay(15000);
+
 			break;
 		}
 		case	'U'	:
 		{
 			/*LKA	With	LDW*/
+			HMOTOR_voidSetSpeed(500);
 			APP_LKA();
 			break;
 		}
