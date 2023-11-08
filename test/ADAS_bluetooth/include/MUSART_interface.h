@@ -22,9 +22,7 @@ void MUSART_voidDisableRX(void);
 void MUSART_voidSendData(u8 ARG_u8Data);
 u8 MUSART_voidReadData(void);
 
-/*Test	Function made by ahmed samir for modes changing*/
 u8 MUSART_voidReadData_1(void);
-
 void MUSART_voidEnableInterrupt(void);
 void MUSART_voidDisableInterrupt(void);
 

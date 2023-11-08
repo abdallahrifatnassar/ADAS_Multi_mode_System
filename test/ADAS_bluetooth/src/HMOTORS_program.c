@@ -86,7 +86,7 @@ void HMOTOR_voidMoveRight(void)
 	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_LOW);
 	
 	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_LOW);
-	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);
+	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_HIGH);
 }
 
 void HMOTOR_voidMoveLeft(void)
@@ -94,7 +94,7 @@ void HMOTOR_voidMoveLeft(void)
 	/*Stop Motors in the right (m1) Move Motors in the left(m2)*/
 	
 	MGPIO_voidSetPinValue(MOTOR_IN1_PORT_PIN,MGPIO_PIN_LOW);
-	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_LOW);
+	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_HIGH);
 	
 	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_HIGH);
 	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);

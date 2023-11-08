@@ -54,24 +54,18 @@ void MUSART_voidSendData(u8 ARG_u8Data)
     while (!(GET_BIT(USART1->USART_SR, 7)));
     USART1->USART_DR = ARG_u8Data;
 }
-u8 MUSART_voidReadData_1(void)
-{
-	u8	Local_u8Data='D';
-	if(!(GET_BIT(USART1->USART_SR, 5)))
-	{
-
-	}
-	else
-	{
-		Local_u8Data= (USART1->USART_DR);
-	}
-
-	 return	Local_u8Data;
-}
 
 u8 MUSART_voidReadData(void)
 {
     while (!(GET_BIT(USART1->USART_SR, 5)));
+    return (USART1->USART_DR);
+}
+u8 MUSART_voidReadData_1(void)
+{
+    if (!(GET_BIT(USART1->USART_SR, 5)))
+    {
+    	return 0;
+    }
     return (USART1->USART_DR);
 }
 void MUSART_voidEnableInterrupt(void)

@@ -42,16 +42,16 @@ int main ()
 	MGPIO_voidSetAlternateFunction(MGPIO_PORTA,MGPIO_PIN9,7);
 	MGPIO_voidSetAlternateFunction(MGPIO_PORTA,MGPIO_PIN10,7);
 
+
 	/*UART1	Enable*/
 	MUSART_voidInit(833);
 	MUSART_voidEnableRX();
 	MUSART_voidEnableTX();
 	MUSART_voidEnableUART();
 
-	/**/
-	MGPIO_voidSetPinMode(MGPIO_PORTB, MGPIO_PIN10,MGPIO_PIN_OUTPUT);
-	MGPIO_voidSetOutputPinType(MGPIO_PORTB, MGPIO_PIN10,MGPIO_PIN_PUSH_PULL);
-	MGPIO_voidSetOutputPinSpeed(MGPIO_PORTB, MGPIO_PIN10,MGPIO_MEDIUMSPEED);
+	/*Test */
+
+
 
 	MNVIC_voidEnablePeripheralInterrupt(28); /*Enable Timer 2 interrupt*/
 
@@ -108,18 +108,40 @@ int main ()
 		}
 		case	'W'	:
 		{
-			/*ACC	With	AE*/
-
+			/*ACC	With	AEB*/
 			HMOTOR_voidMoveForward();
-			ACC_voidMode();
+			while(1)
+			{
+				G_u32Read=MUSART_voidReadData_1();
+				if(G_u32Read==0)
+				{
 
+				}
+				else
+				{
+					break;
+				}
+				ACC_voidMode();
+				MSYSTICK_voidSetDelay(25000);
+			}
 			break;
 		}
 		case	'U'	:
 		{
 			/*LKA	With	LDW*/
-			HMOTOR_voidSetSpeed(500);
-			APP_LKA();
+			while(1)
+			{
+				G_u32Read=MUSART_voidReadData_1();
+				if(G_u32Read==0)
+				{
+
+				}
+				else
+				{
+					break;
+				}
+				APP_LKA();
+			}
 			break;
 		}
 		case	'1'	:
