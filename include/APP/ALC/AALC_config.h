@@ -37,11 +37,11 @@
 
 /*	Change this part		*/
 /*Set pin and port for LDR sensor*/
-#define	LDR_PORT	HLDR_PORTC
-#define	LDR_PIN		HLDR_PIN0
+#define	LDR_PORT	HLDR_PORTA
+#define	LDR_PIN		HLDR_PIN12
 
-#define	OP_PORT		HLDR_PORTC
-#define	OP_PIN		HLDR_PIN1
+#define	OP_PORT		HLDR_PORTA
+#define	OP_PIN		HLDR_PIN15
 
 /*	Do not change this part	*/
 #define	LDR_PORTPIN		LDR_PORT,LDR_PIN
