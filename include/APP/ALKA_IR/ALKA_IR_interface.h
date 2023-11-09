@@ -11,13 +11,21 @@
 #define ALK_IR_INTERFACE_H_
 
 /*--------------------------------------------------------------------------------------------------------------------
+ /**
+ * @brief Implement the Line Keeping Assistance (LKA) algorithm.
  *
- * @brief Initialize the IR sensors.
+ * This function first initializes the ALKA IR sensor. Then, it reads the values of the left and right IR sensors.
+ * Based on the sensor values, the function takes the following actions:
  *
- * This function initializes the HIR peripherals for the IR sensors and sets the pins as input mode with pull-up resistors.
+ * * If both IR sensors are black, the function moves the robot forward.
+ * * If both IR sensors are white, the function stops the robot.
+ * * If the right IR sensor is white, the function turns the robot right.
+ * * If the left IR sensor is white, the function turns the robot left.
  *
  * @return None
- *
+ */
+void APP_LKA(void);
+*
 /--------------------------------------------------------------------------------------------------------------------*/
 void APP_LKA(void);
 
