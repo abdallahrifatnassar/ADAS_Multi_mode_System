@@ -122,7 +122,7 @@ int main ()
 					break;
 				}
 				ACC_voidMode();
-				MSYSTICK_voidSetDelay(25000);
+				MSYSTICK_voidSetDelay(15000);
 			}
 			break;
 		}
@@ -140,7 +140,7 @@ int main ()
 				{
 					break;
 				}
-				APP_LKA();
+				LKS_Camera_App();
 			}
 			break;
 		}

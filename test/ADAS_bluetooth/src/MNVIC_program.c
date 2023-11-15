@@ -9,9 +9,10 @@
 
 #include "LSTD_types.h"
 #include "LBIT_math.h"
+#include "MNVIC_interface.h"
 #include "MNVIC_private.h"
 #include "MNVIC_config.h"
-#include "MNVIC_interface.h"
+
 
 static GroupMode_t Global_GroupMode;
 

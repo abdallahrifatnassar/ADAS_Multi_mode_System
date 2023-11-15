@@ -10,6 +10,7 @@ C_SRCS += \
 ../src/HMOTORS_program.c \
 ../src/HULTRASONIC_program.c \
 ../src/LDW_program.c \
+../src/LKS_CAMERA_program.c \
 ../src/MGPIO_program.c \
 ../src/MNVIC_program.c \
 ../src/MRCC_program.c \
@@ -25,6 +26,7 @@ OBJS += \
 ./src/HMOTORS_program.o \
 ./src/HULTRASONIC_program.o \
 ./src/LDW_program.o \
+./src/LKS_CAMERA_program.o \
 ./src/MGPIO_program.o \
 ./src/MNVIC_program.o \
 ./src/MRCC_program.o \
@@ -40,6 +42,7 @@ C_DEPS += \
 ./src/HMOTORS_program.d \
 ./src/HULTRASONIC_program.d \
 ./src/LDW_program.d \
+./src/LKS_CAMERA_program.d \
 ./src/MGPIO_program.d \
 ./src/MNVIC_program.d \
 ./src/MRCC_program.d \

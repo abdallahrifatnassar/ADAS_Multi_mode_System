@@ -3160,6 +3160,15 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/ALKA_IR.o
  .data          0x00000000        0x0 ./src/ALKA_IR.o
  .bss           0x00000000        0x0 ./src/ALKA_IR.o
+ .text.ALKA_Read_IR_Right
+                0x00000000        0xc ./src/ALKA_IR.o
+ .text.ALKA_Read_IR_Left
+                0x00000000        0xc ./src/ALKA_IR.o
+ .text.APP_LKA  0x00000000       0x88 ./src/ALKA_IR.o
+ .bss.L_u8Left_Read
+                0x00000000        0x1 ./src/ALKA_IR.o
+ .bss.L_u8Right_Read
+                0x00000000        0x1 ./src/ALKA_IR.o
  .debug_macro   0x00000000      0xa6c ./src/ALKA_IR.o
  .debug_macro   0x00000000       0x10 ./src/ALKA_IR.o
  .debug_macro   0x00000000       0x28 ./src/ALKA_IR.o
@@ -3245,6 +3254,20 @@ Discarded input sections
  .debug_frame   0x00000000       0x70 ./src/LDW_program.o
  .ARM.attributes
                 0x00000000       0x33 ./src/LDW_program.o
+ .group         0x00000000        0xc ./src/LKS_CAMERA_program.o
+ .group         0x00000000        0xc ./src/LKS_CAMERA_program.o
+ .group         0x00000000        0xc ./src/LKS_CAMERA_program.o
+ .group         0x00000000        0xc ./src/LKS_CAMERA_program.o
+ .group         0x00000000        0xc ./src/LKS_CAMERA_program.o
+ .group         0x00000000        0xc ./src/LKS_CAMERA_program.o
+ .text          0x00000000        0x0 ./src/LKS_CAMERA_program.o
+ .data          0x00000000        0x0 ./src/LKS_CAMERA_program.o
+ .bss           0x00000000        0x0 ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00000000      0xa6c ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00000000       0x10 ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00000000       0x28 ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00000000       0xd6 ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00000000       0x7c ./src/LKS_CAMERA_program.o
  .group         0x00000000        0xc ./src/MGPIO_program.o
  .group         0x00000000        0xc ./src/MGPIO_program.o
  .group         0x00000000        0xc ./src/MGPIO_program.o
@@ -3486,6 +3509,7 @@ LOAD ./src/HIR_program.o
 LOAD ./src/HMOTORS_program.o
 LOAD ./src/HULTRASONIC_program.o
 LOAD ./src/LDW_program.o
+LOAD ./src/LKS_CAMERA_program.o
 LOAD ./src/MGPIO_program.o
 LOAD ./src/MNVIC_program.o
 LOAD ./src/MRCC_program.o
@@ -3511,7 +3535,7 @@ END GROUP
                 0x2000fc00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
-                0x20000134                PROVIDE (_Heap_Begin, _end_noinit)
+                0x20000130                PROVIDE (_Heap_Begin, _end_noinit)
                 0x2000fc00                PROVIDE (_Heap_Limit, (__stack - __Main_Stack_Size))
 
 .isr_vector     0x08000000      0x3f4
@@ -3610,7 +3634,7 @@ END GROUP
                 0x0800040c                __data_regions_array_end = .
                 0x0800040c                __bss_regions_array_start = .
                 0x0800040c        0x4 LONG 0x2000007c ADDR (.bss)
-                0x08000410        0x4 LONG 0x20000134 (ADDR (.bss) + SIZEOF (.bss))
+                0x08000410        0x4 LONG 0x20000130 (ADDR (.bss) + SIZEOF (.bss))
                 0x08000414        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
                 0x08000418        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x0800041c                __bss_regions_array_end = .
@@ -3678,209 +3702,213 @@ END GROUP
  .text.ALKA_IR_Init
                 0x08000784       0x1a ./src/ALKA_IR.o
                 0x08000784                ALKA_IR_Init
- .text.ALKA_Read_IR_Right
-                0x0800079e        0xc ./src/ALKA_IR.o
-                0x0800079e                ALKA_Read_IR_Right
- .text.ALKA_Read_IR_Left
-                0x080007aa        0xc ./src/ALKA_IR.o
-                0x080007aa                ALKA_Read_IR_Left
- *fill*         0x080007b6        0x2 
- .text.APP_LKA  0x080007b8       0x88 ./src/ALKA_IR.o
-                0x080007b8                APP_LKA
  .text.HIR_voidInit
-                0x08000840       0x14 ./src/HIR_program.o
-                0x08000840                HIR_voidInit
+                0x0800079e       0x14 ./src/HIR_program.o
+                0x0800079e                HIR_voidInit
  .text.HIR_SetPin
-                0x08000854       0x18 ./src/HIR_program.o
-                0x08000854                HIR_SetPin
+                0x080007b2       0x18 ./src/HIR_program.o
+                0x080007b2                HIR_SetPin
  .text.HIR_u8ReadIR
-                0x0800086c        0x8 ./src/HIR_program.o
-                0x0800086c                HIR_u8ReadIR
+                0x080007ca        0x8 ./src/HIR_program.o
+                0x080007ca                HIR_u8ReadIR
  .text.HMOTOR_voidInit
-                0x08000874       0x7c ./src/HMOTORS_program.o
-                0x08000874                HMOTOR_voidInit
+                0x080007d2       0x7c ./src/HMOTORS_program.o
+                0x080007d2                HMOTOR_voidInit
  .text.HMOTOR_voidMoveForward
-                0x080008f0       0x2c ./src/HMOTORS_program.o
-                0x080008f0                HMOTOR_voidMoveForward
+                0x0800084e       0x2c ./src/HMOTORS_program.o
+                0x0800084e                HMOTOR_voidMoveForward
  .text.HMOTOR_voidMoveBackward
-                0x0800091c       0x2c ./src/HMOTORS_program.o
-                0x0800091c                HMOTOR_voidMoveBackward
+                0x0800087a       0x2c ./src/HMOTORS_program.o
+                0x0800087a                HMOTOR_voidMoveBackward
  .text.HMOTOR_voidStop
-                0x08000948       0x2c ./src/HMOTORS_program.o
-                0x08000948                HMOTOR_voidStop
+                0x080008a6       0x2c ./src/HMOTORS_program.o
+                0x080008a6                HMOTOR_voidStop
  .text.HMOTOR_voidMoveRight
-                0x08000974       0x2c ./src/HMOTORS_program.o
-                0x08000974                HMOTOR_voidMoveRight
+                0x080008d2       0x2c ./src/HMOTORS_program.o
+                0x080008d2                HMOTOR_voidMoveRight
  .text.HMOTOR_voidMoveLeft
-                0x080009a0       0x2c ./src/HMOTORS_program.o
-                0x080009a0                HMOTOR_voidMoveLeft
+                0x080008fe       0x2c ./src/HMOTORS_program.o
+                0x080008fe                HMOTOR_voidMoveLeft
  .text.HMOTOR_voidSetSpeed
-                0x080009cc        0xc ./src/HMOTORS_program.o
-                0x080009cc                HMOTOR_voidSetSpeed
+                0x0800092a        0xc ./src/HMOTORS_program.o
+                0x0800092a                HMOTOR_voidSetSpeed
  .text.HULTRASONIC_voidInit
-                0x080009d8       0x36 ./src/HULTRASONIC_program.o
-                0x080009d8                HULTRASONIC_voidInit
+                0x08000936       0x36 ./src/HULTRASONIC_program.o
+                0x08000936                HULTRASONIC_voidInit
  .text.HULTRASONIC_voidGetDistance
-                0x08000a0e       0x28 ./src/HULTRASONIC_program.o
-                0x08000a0e                HULTRASONIC_voidGetDistance
- *fill*         0x08000a36        0x2 
+                0x0800096c       0x28 ./src/HULTRASONIC_program.o
+                0x0800096c                HULTRASONIC_voidGetDistance
+ *fill*         0x08000994        0x4 
  .text.TIM2_IRQHandler
-                0x08000a38       0x70 ./src/HULTRASONIC_program.o
-                0x08000a38                TIM2_IRQHandler
+                0x08000998       0x70 ./src/HULTRASONIC_program.o
+                0x08000998                TIM2_IRQHandler
+ .text.LKS_Camera_App_Init
+                0x08000a08       0x1a ./src/LKS_CAMERA_program.o
+                0x08000a08                LKS_Camera_App_Init
+ .text.LKS_Camera_Read_Right
+                0x08000a22        0xc ./src/LKS_CAMERA_program.o
+                0x08000a22                LKS_Camera_Read_Right
+ .text.LKS_Camera_Read_Left
+                0x08000a2e        0xc ./src/LKS_CAMERA_program.o
+                0x08000a2e                LKS_Camera_Read_Left
+ *fill*         0x08000a3a        0x2 
+ .text.LKS_Camera_App
+                0x08000a3c       0x64 ./src/LKS_CAMERA_program.o
+                0x08000a3c                LKS_Camera_App
  .text.MGPIO_voidSetPinMode
-                0x08000aa8       0x74 ./src/MGPIO_program.o
-                0x08000aa8                MGPIO_voidSetPinMode
+                0x08000aa0       0x74 ./src/MGPIO_program.o
+                0x08000aa0                MGPIO_voidSetPinMode
  .text.MGPIO_voidSetOutputPinType
-                0x08000b1c       0x94 ./src/MGPIO_program.o
-                0x08000b1c                MGPIO_voidSetOutputPinType
+                0x08000b14       0x94 ./src/MGPIO_program.o
+                0x08000b14                MGPIO_voidSetOutputPinType
  .text.MGPIO_voidSetOutputPinSpeed
-                0x08000bb0       0x74 ./src/MGPIO_program.o
-                0x08000bb0                MGPIO_voidSetOutputPinSpeed
+                0x08000ba8       0x74 ./src/MGPIO_program.o
+                0x08000ba8                MGPIO_voidSetOutputPinSpeed
  .text.MGPIO_voidSetPinPullType
-                0x08000c24       0x74 ./src/MGPIO_program.o
-                0x08000c24                MGPIO_voidSetPinPullType
+                0x08000c1c       0x74 ./src/MGPIO_program.o
+                0x08000c1c                MGPIO_voidSetPinPullType
  .text.MGPIO_u8GetPinValue
-                0x08000c98       0x40 ./src/MGPIO_program.o
-                0x08000c98                MGPIO_u8GetPinValue
+                0x08000c90       0x40 ./src/MGPIO_program.o
+                0x08000c90                MGPIO_u8GetPinValue
  .text.MGPIO_voidSetPinValue
-                0x08000cd8       0x78 ./src/MGPIO_program.o
-                0x08000cd8                MGPIO_voidSetPinValue
+                0x08000cd0       0x78 ./src/MGPIO_program.o
+                0x08000cd0                MGPIO_voidSetPinValue
  .text.MGPIO_voidSetAlternateFunction
-                0x08000d50       0xdc ./src/MGPIO_program.o
-                0x08000d50                MGPIO_voidSetAlternateFunction
+                0x08000d48       0xdc ./src/MGPIO_program.o
+                0x08000d48                MGPIO_voidSetAlternateFunction
  .text.MNVIC_voidEnablePeripheralInterrupt
-                0x08000e2c       0x18 ./src/MNVIC_program.o
-                0x08000e2c                MNVIC_voidEnablePeripheralInterrupt
+                0x08000e24       0x18 ./src/MNVIC_program.o
+                0x08000e24                MNVIC_voidEnablePeripheralInterrupt
  .text.MRCC_voidInit
-                0x08000e44       0x50 ./src/MRCC_program.o
-                0x08000e44                MRCC_voidInit
+                0x08000e3c       0x50 ./src/MRCC_program.o
+                0x08000e3c                MRCC_voidInit
  .text.MRCC_voidEnablePeripheral
-                0x08000e94       0x54 ./src/MRCC_program.o
-                0x08000e94                MRCC_voidEnablePeripheral
+                0x08000e8c       0x54 ./src/MRCC_program.o
+                0x08000e8c                MRCC_voidEnablePeripheral
  .text.MSYSTICK_voidInit
-                0x08000ee8       0x24 ./src/MSYSTICK_program.o
-                0x08000ee8                MSYSTICK_voidInit
+                0x08000ee0       0x24 ./src/MSYSTICK_program.o
+                0x08000ee0                MSYSTICK_voidInit
  .text.MSYSTICK_voidEnable
-                0x08000f0c       0x10 ./src/MSYSTICK_program.o
-                0x08000f0c                MSYSTICK_voidEnable
+                0x08000f04       0x10 ./src/MSYSTICK_program.o
+                0x08000f04                MSYSTICK_voidEnable
  .text.MSYSTICK_voidDisable
-                0x08000f1c       0x10 ./src/MSYSTICK_program.o
-                0x08000f1c                MSYSTICK_voidDisable
+                0x08000f14       0x10 ./src/MSYSTICK_program.o
+                0x08000f14                MSYSTICK_voidDisable
  .text.MSYSTICK_voidReloadValue
-                0x08000f2c        0xc ./src/MSYSTICK_program.o
-                0x08000f2c                MSYSTICK_voidReloadValue
+                0x08000f24        0xc ./src/MSYSTICK_program.o
+                0x08000f24                MSYSTICK_voidReloadValue
  .text.SysTick_Handler
-                0x08000f38       0x28 ./src/MSYSTICK_program.o
-                0x08000f38                SysTick_Handler
+                0x08000f30       0x28 ./src/MSYSTICK_program.o
+                0x08000f30                SysTick_Handler
  .text.MSYSTICK_voidSetDelay
-                0x08000f60       0x20 ./src/MSYSTICK_program.o
-                0x08000f60                MSYSTICK_voidSetDelay
+                0x08000f58       0x20 ./src/MSYSTICK_program.o
+                0x08000f58                MSYSTICK_voidSetDelay
  .text.MTIMER3_voidPwmModeInit
-                0x08000f80       0xcc ./src/MTIMER_program.o
-                0x08000f80                MTIMER3_voidPwmModeInit
+                0x08000f78       0xcc ./src/MTIMER_program.o
+                0x08000f78                MTIMER3_voidPwmModeInit
  .text.MTIMER3_voidStartTimer
-                0x0800104c       0x10 ./src/MTIMER_program.o
-                0x0800104c                MTIMER3_voidStartTimer
+                0x08001044       0x10 ./src/MTIMER_program.o
+                0x08001044                MTIMER3_voidStartTimer
  .text.MTIMER3_voidSetCompareValue
-                0x0800105c       0x2c ./src/MTIMER_program.o
-                0x0800105c                MTIMER3_voidSetCompareValue
+                0x08001054       0x2c ./src/MTIMER_program.o
+                0x08001054                MTIMER3_voidSetCompareValue
  .text.MTIMER3_voidSetPeriodValue
-                0x08001088        0xc ./src/MTIMER_program.o
-                0x08001088                MTIMER3_voidSetPeriodValue
+                0x08001080        0xc ./src/MTIMER_program.o
+                0x08001080                MTIMER3_voidSetPeriodValue
  .text.MTIMER3_voidSetPreScaler
-                0x08001094        0xc ./src/MTIMER_program.o
-                0x08001094                MTIMER3_voidSetPreScaler
+                0x0800108c        0xc ./src/MTIMER_program.o
+                0x0800108c                MTIMER3_voidSetPreScaler
  .text.MTIMER2_voidInit
-                0x080010a0      0x12c ./src/MTIMER_program.o
-                0x080010a0                MTIMER2_voidInit
+                0x08001098      0x12c ./src/MTIMER_program.o
+                0x08001098                MTIMER2_voidInit
  .text.MTIMER2_voidStartTimer
-                0x080011cc        0xe ./src/MTIMER_program.o
-                0x080011cc                MTIMER2_voidStartTimer
+                0x080011c4        0xe ./src/MTIMER_program.o
+                0x080011c4                MTIMER2_voidStartTimer
  .text.MTIMER2_voidStopTimer
-                0x080011da        0xe ./src/MTIMER_program.o
-                0x080011da                MTIMER2_voidStopTimer
+                0x080011d2        0xe ./src/MTIMER_program.o
+                0x080011d2                MTIMER2_voidStopTimer
  .text.MTIMER2_u32CaptureValue
-                0x080011e8       0x32 ./src/MTIMER_program.o
-                0x080011e8                MTIMER2_u32CaptureValue
+                0x080011e0       0x32 ./src/MTIMER_program.o
+                0x080011e0                MTIMER2_u32CaptureValue
  .text.MTIMER2_voidEnableInterrupt
-                0x0800121a        0xe ./src/MTIMER_program.o
-                0x0800121a                MTIMER2_voidEnableInterrupt
+                0x08001212        0xe ./src/MTIMER_program.o
+                0x08001212                MTIMER2_voidEnableInterrupt
  .text.MTIMER2_voidSetPreScaler
-                0x08001228        0x8 ./src/MTIMER_program.o
-                0x08001228                MTIMER2_voidSetPreScaler
+                0x08001220        0x8 ./src/MTIMER_program.o
+                0x08001220                MTIMER2_voidSetPreScaler
  .text.MTIMER2_voidClearCount
-                0x08001230        0xa ./src/MTIMER_program.o
-                0x08001230                MTIMER2_voidClearCount
- *fill*         0x0800123a        0x2 
+                0x08001228        0xa ./src/MTIMER_program.o
+                0x08001228                MTIMER2_voidClearCount
+ *fill*         0x08001232        0x2 
  .text.MUSART_voidInit
-                0x0800123c       0x2c ./src/MUSART_program.o
-                0x0800123c                MUSART_voidInit
+                0x08001234       0x2c ./src/MUSART_program.o
+                0x08001234                MUSART_voidInit
  .text.MUSART_voidEnableUART
-                0x08001268       0x10 ./src/MUSART_program.o
-                0x08001268                MUSART_voidEnableUART
+                0x08001260       0x10 ./src/MUSART_program.o
+                0x08001260                MUSART_voidEnableUART
  .text.MUSART_voidEnableTX
-                0x08001278       0x10 ./src/MUSART_program.o
-                0x08001278                MUSART_voidEnableTX
+                0x08001270       0x10 ./src/MUSART_program.o
+                0x08001270                MUSART_voidEnableTX
  .text.MUSART_voidEnableRX
-                0x08001288       0x10 ./src/MUSART_program.o
-                0x08001288                MUSART_voidEnableRX
+                0x08001280       0x10 ./src/MUSART_program.o
+                0x08001280                MUSART_voidEnableRX
  .text.MUSART_voidReadData
-                0x08001298       0x18 ./src/MUSART_program.o
-                0x08001298                MUSART_voidReadData
+                0x08001290       0x18 ./src/MUSART_program.o
+                0x08001290                MUSART_voidReadData
  .text.MUSART_voidReadData_1
-                0x080012b0       0x1c ./src/MUSART_program.o
-                0x080012b0                MUSART_voidReadData_1
- .text.main     0x080012cc      0x294 ./src/main.o
-                0x080012cc                main
- .text          0x08001560      0x378 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
-                0x08001560                __aeabi_drsub
-                0x08001568                __aeabi_dsub
-                0x08001568                __subdf3
-                0x0800156c                __aeabi_dadd
-                0x0800156c                __adddf3
-                0x080017e4                __floatunsidf
-                0x080017e4                __aeabi_ui2d
-                0x08001804                __floatsidf
-                0x08001804                __aeabi_i2d
-                0x08001828                __aeabi_f2d
-                0x08001828                __extendsfdf2
-                0x0800186c                __floatundidf
-                0x0800186c                __aeabi_ul2d
-                0x0800187c                __floatdidf
-                0x0800187c                __aeabi_l2d
- .text          0x080018d8      0x424 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
-                0x080018d8                __aeabi_dmul
-                0x080018d8                __muldf3
-                0x08001b2c                __divdf3
-                0x08001b2c                __aeabi_ddiv
- .text          0x08001cfc       0x40 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
-                0x08001cfc                __aeabi_d2uiz
-                0x08001cfc                __fixunsdfsi
- .text.__errno  0x08001d3c        0xc c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-errno.o)
-                0x08001d3c                __errno
+                0x080012a8       0x1c ./src/MUSART_program.o
+                0x080012a8                MUSART_voidReadData_1
+ .text.main     0x080012c4      0x294 ./src/main.o
+                0x080012c4                main
+ .text          0x08001558      0x378 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+                0x08001558                __aeabi_drsub
+                0x08001560                __aeabi_dsub
+                0x08001560                __subdf3
+                0x08001564                __aeabi_dadd
+                0x08001564                __adddf3
+                0x080017dc                __floatunsidf
+                0x080017dc                __aeabi_ui2d
+                0x080017fc                __floatsidf
+                0x080017fc                __aeabi_i2d
+                0x08001820                __aeabi_f2d
+                0x08001820                __extendsfdf2
+                0x08001864                __floatundidf
+                0x08001864                __aeabi_ul2d
+                0x08001874                __floatdidf
+                0x08001874                __aeabi_l2d
+ .text          0x080018d0      0x424 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+                0x080018d0                __aeabi_dmul
+                0x080018d0                __muldf3
+                0x08001b24                __divdf3
+                0x08001b24                __aeabi_ddiv
+ .text          0x08001cf4       0x40 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
+                0x08001cf4                __aeabi_d2uiz
+                0x08001cf4                __fixunsdfsi
+ .text.__errno  0x08001d34        0xc c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-errno.o)
+                0x08001d34                __errno
  .text._vsnprintf_r
-                0x08001d48       0x58 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08001d48                _vsniprintf_r
-                0x08001d48                _vsnprintf_r
+                0x08001d40       0x58 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x08001d40                _vsniprintf_r
+                0x08001d40                _vsnprintf_r
  .text.vsnprintf
-                0x08001da0       0x1c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08001da0                vsniprintf
-                0x08001da0                vsnprintf
+                0x08001d98       0x1c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x08001d98                vsniprintf
+                0x08001d98                vsnprintf
  .text.__ssputs_r
-                0x08001dbc       0xb4 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08001dbc                __ssputs_r
+                0x08001db4       0xb4 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08001db4                __ssputs_r
  .text._svfprintf_r
-                0x08001e70      0x1ec c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08001e70                _svfiprintf_r
-                0x08001e70                _svfprintf_r
+                0x08001e68      0x1ec c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08001e68                _svfiprintf_r
+                0x08001e68                _svfprintf_r
  .text._printf_common
-                0x0800205c       0xea c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0800205c                _printf_common
- *fill*         0x08002146        0x2 
+                0x08002054       0xea c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08002054                _printf_common
+ *fill*         0x0800213e        0x2 
  .text._printf_i
-                0x08002148      0x224 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08002148                _printf_i
- *fill*         0x0800236c        0x4 
+                0x08002140      0x224 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08002140                _printf_i
+ *fill*         0x08002364        0xc 
  .text          0x08002370       0xa0 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memchr.o)
                 0x08002370                memchr
  .text.memcpy   0x08002410       0x16 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memcpy-stub.o)
@@ -3989,7 +4017,7 @@ END GROUP
 .bss_CCMRAM     0x10000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x2000007c       0xb8
+.bss            0x2000007c       0xb4
                 0x2000007c                __bss_start__ = .
                 0x2000007c                _sbss = .
  *(.bss_begin .bss_begin.*)
@@ -4001,58 +4029,57 @@ END GROUP
                 0x20000084        0x1 ./system/src/newlib/_syscalls.o
  *fill*         0x20000085        0x3 
  .bss.buf.5205  0x20000088       0x80 ./system/src/diag/Trace.o
- .bss.L_u8Left_Read
-                0x20000108        0x1 ./src/ALKA_IR.o
-                0x20000108                L_u8Left_Read
- .bss.L_u8Right_Read
-                0x20000109        0x1 ./src/ALKA_IR.o
-                0x20000109                L_u8Right_Read
- *fill*         0x2000010a        0x2 
  .bss.Local_u32FinalValue
-                0x2000010c        0x4 ./src/HULTRASONIC_program.o
+                0x20000108        0x4 ./src/HULTRASONIC_program.o
  .bss.Local_u32initalValue
-                0x20000110        0x4 ./src/HULTRASONIC_program.o
+                0x2000010c        0x4 ./src/HULTRASONIC_program.o
  .bss.Local_u8Flag.3734
-                0x20000114        0x1 ./src/HULTRASONIC_program.o
- *fill*         0x20000115        0x3 
+                0x20000110        0x1 ./src/HULTRASONIC_program.o
+ .bss.L_u8Left_Read_Cam
+                0x20000111        0x1 ./src/LKS_CAMERA_program.o
+                0x20000111                L_u8Left_Read_Cam
+ .bss.L_u8Right_Read_Cam
+                0x20000112        0x1 ./src/LKS_CAMERA_program.o
+                0x20000112                L_u8Right_Read_Cam
+ *fill*         0x20000113        0x1 
  .bss.Global_pvSysTickFunc
-                0x20000118        0x4 ./src/MSYSTICK_program.o
-                0x20000118                Global_pvSysTickFunc
+                0x20000114        0x4 ./src/MSYSTICK_program.o
+                0x20000114                Global_pvSysTickFunc
  .bss.__malloc_free_list
-                0x2000011c        0x4 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x2000011c                __malloc_free_list
+                0x20000118        0x4 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x20000118                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x20000120        0x4 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20000120                __malloc_sbrk_start
+                0x2000011c        0x4 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x2000011c                __malloc_sbrk_start
  *(COMMON)
- COMMON         0x20000124        0x4 ./system/src/newlib/_syscalls.o
-                0x20000124                errno
- COMMON         0x20000128        0x4 ./src/HULTRASONIC_program.o
-                0x20000128                Global_u32Distance
- COMMON         0x2000012c        0x4 ./src/main.o
-                0x2000012c                G_u32Read
+ COMMON         0x20000120        0x4 ./system/src/newlib/_syscalls.o
+                0x20000120                errno
+ COMMON         0x20000124        0x4 ./src/HULTRASONIC_program.o
+                0x20000124                Global_u32Distance
+ COMMON         0x20000128        0x4 ./src/main.o
+                0x20000128                G_u32Read
  *(.bss_end .bss_end.*)
- .bss_end       0x20000130        0x4 ./system/src/newlib/_startup.o
-                0x20000134                . = ALIGN (0x4)
-                0x20000134                __bss_end__ = .
-                0x20000134                _ebss = .
+ .bss_end       0x2000012c        0x4 ./system/src/newlib/_startup.o
+                0x20000130                . = ALIGN (0x4)
+                0x20000130                __bss_end__ = .
+                0x20000130                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x20000134        0x0
-                0x20000134                _noinit = .
+.noinit         0x20000130        0x0
+                0x20000130                _noinit = .
  *(.noinit .noinit.*)
-                0x20000134                . = ALIGN (0x4)
-                0x20000134                _end_noinit = .
+                0x20000130                . = ALIGN (0x4)
+                0x20000130                _end_noinit = .
                 [!provide]                PROVIDE (end, _end_noinit)
                 [!provide]                PROVIDE (_end, _end_noinit)
                 [!provide]                PROVIDE (__end, _end_noinit)
                 [!provide]                PROVIDE (__end__, _end_noinit)
 
-._check_stack   0x20000134      0x100
-                0x20000234                . = (. + _Minimum_Stack_Size)
- *fill*         0x20000134      0x100 
+._check_stack   0x20000130      0x100
+                0x20000230                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000130      0x100 
 
 .b1text
  *(.b1text)
@@ -4115,6 +4142,7 @@ END GROUP
  .comment       0x0000007e       0x7f ./src/HIR_program.o
  .comment       0x0000007e       0x7f ./src/HMOTORS_program.o
  .comment       0x0000007e       0x7f ./src/HULTRASONIC_program.o
+ .comment       0x0000007e       0x7f ./src/LKS_CAMERA_program.o
  .comment       0x0000007e       0x7f ./src/MGPIO_program.o
  .comment       0x0000007e       0x7f ./src/MNVIC_program.o
  .comment       0x0000007e       0x7f ./src/MRCC_program.o
@@ -4156,53 +4184,55 @@ END GROUP
  .ARM.attributes
                 0x000002ca       0x33 ./src/HULTRASONIC_program.o
  .ARM.attributes
-                0x000002fd       0x33 ./src/MGPIO_program.o
+                0x000002fd       0x33 ./src/LKS_CAMERA_program.o
  .ARM.attributes
-                0x00000330       0x33 ./src/MNVIC_program.o
+                0x00000330       0x33 ./src/MGPIO_program.o
  .ARM.attributes
-                0x00000363       0x33 ./src/MRCC_program.o
+                0x00000363       0x33 ./src/MNVIC_program.o
  .ARM.attributes
-                0x00000396       0x33 ./src/MSYSTICK_program.o
+                0x00000396       0x33 ./src/MRCC_program.o
  .ARM.attributes
-                0x000003c9       0x33 ./src/MTIMER_program.o
+                0x000003c9       0x33 ./src/MSYSTICK_program.o
  .ARM.attributes
-                0x000003fc       0x33 ./src/MUSART_program.o
+                0x000003fc       0x33 ./src/MTIMER_program.o
  .ARM.attributes
-                0x0000042f       0x33 ./src/main.o
+                0x0000042f       0x33 ./src/MUSART_program.o
  .ARM.attributes
-                0x00000462       0x1e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+                0x00000462       0x33 ./src/main.o
  .ARM.attributes
-                0x00000480       0x1e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+                0x00000495       0x1e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x0000049e       0x1e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
+                0x000004b3       0x1e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x000004bc       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-errno.o)
+                0x000004d1       0x1e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
-                0x000004ea       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-impure.o)
+                0x000004ef       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000518       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x0000051d       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000546       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000054b       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
  .ARM.attributes
-                0x00000574       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000579       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x000005a2       0x1c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memchr.o)
+                0x000005a7       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x000005be       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x000005d5       0x1c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memchr.o)
  .ARM.attributes
-                0x000005ec       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memmove.o)
+                0x000005f1       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x0000061a       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-freer.o)
+                0x0000061f       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x00000648       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000064d       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x00000676       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x0000067b       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x000006a4       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-sbrkr.o)
+                0x000006a9       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x000006d2       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-mlock.o)
+                0x000006d7       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x00000700       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x00000705       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x00000733       0x2e c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-msizer.o)
 
 .debug
  *(.debug)
@@ -4216,7 +4246,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x5b0
+.debug_aranges  0x00000000      0x5e8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ./system/src/newlib/_exit.o
@@ -4249,24 +4279,26 @@ END GROUP
  .debug_aranges
                 0x000002f8       0x38 ./src/HULTRASONIC_program.o
  .debug_aranges
-                0x00000330       0x58 ./src/MGPIO_program.o
+                0x00000330       0x38 ./src/LKS_CAMERA_program.o
  .debug_aranges
-                0x00000388       0x48 ./src/MNVIC_program.o
+                0x00000368       0x58 ./src/MGPIO_program.o
  .debug_aranges
-                0x000003d0       0x48 ./src/MRCC_program.o
+                0x000003c0       0x48 ./src/MNVIC_program.o
  .debug_aranges
-                0x00000418       0x80 ./src/MSYSTICK_program.o
+                0x00000408       0x48 ./src/MRCC_program.o
  .debug_aranges
-                0x00000498       0x88 ./src/MTIMER_program.o
+                0x00000450       0x80 ./src/MSYSTICK_program.o
  .debug_aranges
-                0x00000520       0x70 ./src/MUSART_program.o
+                0x000004d0       0x88 ./src/MTIMER_program.o
  .debug_aranges
-                0x00000590       0x20 ./src/main.o
+                0x00000558       0x70 ./src/MUSART_program.o
+ .debug_aranges
+                0x000005c8       0x20 ./src/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x8410
+.debug_info     0x00000000     0x862e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x956 ./system/src/newlib/_exit.o
  .debug_info    0x00000956      0x942 ./system/src/newlib/_sbrk.o
@@ -4283,15 +4315,16 @@ END GROUP
  .debug_info    0x00006548      0x1a4 ./src/HIR_program.o
  .debug_info    0x000066ec      0x4e4 ./src/HMOTORS_program.o
  .debug_info    0x00006bd0      0x2b6 ./src/HULTRASONIC_program.o
- .debug_info    0x00006e86      0x318 ./src/MGPIO_program.o
- .debug_info    0x0000719e      0x2ea ./src/MNVIC_program.o
- .debug_info    0x00007488      0x2e7 ./src/MRCC_program.o
- .debug_info    0x0000776f      0x258 ./src/MSYSTICK_program.o
- .debug_info    0x000079c7      0x326 ./src/MTIMER_program.o
- .debug_info    0x00007ced      0x1c7 ./src/MUSART_program.o
- .debug_info    0x00007eb4      0x55c ./src/main.o
+ .debug_info    0x00006e86      0x1ff ./src/LKS_CAMERA_program.o
+ .debug_info    0x00007085      0x318 ./src/MGPIO_program.o
+ .debug_info    0x0000739d      0x2ea ./src/MNVIC_program.o
+ .debug_info    0x00007687      0x2e7 ./src/MRCC_program.o
+ .debug_info    0x0000796e      0x258 ./src/MSYSTICK_program.o
+ .debug_info    0x00007bc6      0x326 ./src/MTIMER_program.o
+ .debug_info    0x00007eec      0x1c7 ./src/MUSART_program.o
+ .debug_info    0x000080b3      0x57b ./src/main.o
 
-.debug_abbrev   0x00000000     0x1f90
+.debug_abbrev   0x00000000     0x2078
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1f3 ./system/src/newlib/_exit.o
  .debug_abbrev  0x000001f3      0x1fc ./system/src/newlib/_sbrk.o
@@ -4308,15 +4341,16 @@ END GROUP
  .debug_abbrev  0x00001659       0xc3 ./src/HIR_program.o
  .debug_abbrev  0x0000171c       0x8d ./src/HMOTORS_program.o
  .debug_abbrev  0x000017a9       0xe4 ./src/HULTRASONIC_program.o
- .debug_abbrev  0x0000188d      0x112 ./src/MGPIO_program.o
- .debug_abbrev  0x0000199f      0x111 ./src/MNVIC_program.o
- .debug_abbrev  0x00001ab0      0x111 ./src/MRCC_program.o
- .debug_abbrev  0x00001bc1      0x162 ./src/MSYSTICK_program.o
- .debug_abbrev  0x00001d23      0x101 ./src/MTIMER_program.o
- .debug_abbrev  0x00001e24       0xd2 ./src/MUSART_program.o
- .debug_abbrev  0x00001ef6       0x9a ./src/main.o
+ .debug_abbrev  0x0000188d       0xc5 ./src/LKS_CAMERA_program.o
+ .debug_abbrev  0x00001952      0x112 ./src/MGPIO_program.o
+ .debug_abbrev  0x00001a64      0x111 ./src/MNVIC_program.o
+ .debug_abbrev  0x00001b75      0x111 ./src/MRCC_program.o
+ .debug_abbrev  0x00001c86      0x162 ./src/MSYSTICK_program.o
+ .debug_abbrev  0x00001de8      0x101 ./src/MTIMER_program.o
+ .debug_abbrev  0x00001ee9       0xd2 ./src/MUSART_program.o
+ .debug_abbrev  0x00001fbb       0xbd ./src/main.o
 
-.debug_line     0x00000000     0x4cd0
+.debug_line     0x00000000     0x4e2b
  *(.debug_line)
  .debug_line    0x00000000      0x327 ./system/src/newlib/_exit.o
  .debug_line    0x00000327      0x2db ./system/src/newlib/_sbrk.o
@@ -4333,15 +4367,16 @@ END GROUP
  .debug_line    0x00003e1c       0xf1 ./src/HIR_program.o
  .debug_line    0x00003f0d      0x163 ./src/HMOTORS_program.o
  .debug_line    0x00004070      0x14d ./src/HULTRASONIC_program.o
- .debug_line    0x000041bd      0x1ca ./src/MGPIO_program.o
- .debug_line    0x00004387      0x10b ./src/MNVIC_program.o
- .debug_line    0x00004492      0x177 ./src/MRCC_program.o
- .debug_line    0x00004609      0x19d ./src/MSYSTICK_program.o
- .debug_line    0x000047a6      0x1ed ./src/MTIMER_program.o
- .debug_line    0x00004993      0x16a ./src/MUSART_program.o
- .debug_line    0x00004afd      0x1d3 ./src/main.o
+ .debug_line    0x000041bd      0x15b ./src/LKS_CAMERA_program.o
+ .debug_line    0x00004318      0x1ca ./src/MGPIO_program.o
+ .debug_line    0x000044e2      0x10b ./src/MNVIC_program.o
+ .debug_line    0x000045ed      0x177 ./src/MRCC_program.o
+ .debug_line    0x00004764      0x19d ./src/MSYSTICK_program.o
+ .debug_line    0x00004901      0x1ed ./src/MTIMER_program.o
+ .debug_line    0x00004aee      0x16a ./src/MUSART_program.o
+ .debug_line    0x00004c58      0x1d3 ./src/main.o
 
-.debug_frame    0x00000000      0xe74
+.debug_frame    0x00000000      0xee4
  *(.debug_frame)
  .debug_frame   0x00000000       0x38 ./system/src/newlib/_exit.o
  .debug_frame   0x00000038       0x28 ./system/src/newlib/_sbrk.o
@@ -4358,30 +4393,31 @@ END GROUP
  .debug_frame   0x000004a4       0x5c ./src/HIR_program.o
  .debug_frame   0x00000500       0xb8 ./src/HMOTORS_program.o
  .debug_frame   0x000005b8       0x68 ./src/HULTRASONIC_program.o
- .debug_frame   0x00000620       0xc0 ./src/MGPIO_program.o
- .debug_frame   0x000006e0       0x70 ./src/MNVIC_program.o
- .debug_frame   0x00000750       0x70 ./src/MRCC_program.o
- .debug_frame   0x000007c0       0xf4 ./src/MSYSTICK_program.o
- .debug_frame   0x000008b4       0xf0 ./src/MTIMER_program.o
- .debug_frame   0x000009a4       0xc0 ./src/MUSART_program.o
- .debug_frame   0x00000a64       0x28 ./src/main.o
- .debug_frame   0x00000a8c       0xac c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00000b38       0x50 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00000b88       0x24 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x00000bac       0x20 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00000bcc       0x4c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
- .debug_frame   0x00000c18       0x90 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x00000ca8       0x60 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x00000d08       0x28 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00000d30       0x28 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x00000d58       0x38 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00000d90       0x2c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00000dbc       0x3c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x00000df8       0x2c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00000e24       0x30 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x00000e54       0x20 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x00000620       0x70 ./src/LKS_CAMERA_program.o
+ .debug_frame   0x00000690       0xc0 ./src/MGPIO_program.o
+ .debug_frame   0x00000750       0x70 ./src/MNVIC_program.o
+ .debug_frame   0x000007c0       0x70 ./src/MRCC_program.o
+ .debug_frame   0x00000830       0xf4 ./src/MSYSTICK_program.o
+ .debug_frame   0x00000924       0xf0 ./src/MTIMER_program.o
+ .debug_frame   0x00000a14       0xc0 ./src/MUSART_program.o
+ .debug_frame   0x00000ad4       0x28 ./src/main.o
+ .debug_frame   0x00000afc       0xac c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00000ba8       0x50 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00000bf8       0x24 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m\libgcc.a(_arm_fixunsdfsi.o)
+ .debug_frame   0x00000c1c       0x20 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00000c3c       0x4c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-vsnprintf.o)
+ .debug_frame   0x00000c88       0x90 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x00000d18       0x60 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x00000d78       0x28 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00000da0       0x28 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x00000dc8       0x38 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00000e00       0x2c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00000e2c       0x3c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x00000e68       0x2c c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00000e94       0x30 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00000ec4       0x20 c:/03- imt sdk/imt_sdk_win_64/winarm/armgcc/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000    0x7444f
+.debug_str      0x00000000    0x74561
  *(.debug_str)
  .debug_str     0x00000000     0x7d11 ./system/src/newlib/_exit.o
                                0x7ee4 (size before relaxing)
@@ -4413,22 +4449,24 @@ END GROUP
                                0x33b8 (size before relaxing)
  .debug_str     0x00072e8c      0x209 ./src/HULTRASONIC_program.o
                                0x3436 (size before relaxing)
- .debug_str     0x00073095      0x204 ./src/MGPIO_program.o
+ .debug_str     0x00073095      0x112 ./src/LKS_CAMERA_program.o
+                               0x3374 (size before relaxing)
+ .debug_str     0x000731a7      0x204 ./src/MGPIO_program.o
                                0x33a4 (size before relaxing)
- .debug_str     0x00073299      0x28e ./src/MNVIC_program.o
+ .debug_str     0x000733ab      0x28e ./src/MNVIC_program.o
                                0x3173 (size before relaxing)
- .debug_str     0x00073527      0x448 ./src/MRCC_program.o
+ .debug_str     0x00073639      0x448 ./src/MRCC_program.o
                                0x3545 (size before relaxing)
- .debug_str     0x0007396f      0x355 ./src/MSYSTICK_program.o
+ .debug_str     0x00073a81      0x355 ./src/MSYSTICK_program.o
                                0x3263 (size before relaxing)
- .debug_str     0x00073cc4      0x47a ./src/MTIMER_program.o
+ .debug_str     0x00073dd6      0x47a ./src/MTIMER_program.o
                                0x3468 (size before relaxing)
- .debug_str     0x0007413e      0x2e6 ./src/MUSART_program.o
+ .debug_str     0x00074250      0x2e6 ./src/MUSART_program.o
                                0x3182 (size before relaxing)
- .debug_str     0x00074424       0x2b ./src/main.o
-                               0x3a7a (size before relaxing)
+ .debug_str     0x00074536       0x2b ./src/main.o
+                               0x3a81 (size before relaxing)
 
-.debug_loc      0x00000000     0x1874
+.debug_loc      0x00000000     0x18b2
  *(.debug_loc)
  .debug_loc     0x00000000       0x85 ./system/src/newlib/_sbrk.o
  .debug_loc     0x00000085      0x2cb ./system/src/newlib/_startup.o
@@ -4440,11 +4478,12 @@ END GROUP
  .debug_loc     0x00000999       0x3e ./src/ALKA_IR.o
  .debug_loc     0x000009d7       0xc4 ./src/HIR_program.o
  .debug_loc     0x00000a9b       0x21 ./src/HMOTORS_program.o
- .debug_loc     0x00000abc      0x914 ./src/MGPIO_program.o
- .debug_loc     0x000013d0      0x1be ./src/MNVIC_program.o
- .debug_loc     0x0000158e      0x1d1 ./src/MRCC_program.o
- .debug_loc     0x0000175f       0x21 ./src/MSYSTICK_program.o
- .debug_loc     0x00001780       0xf4 ./src/MTIMER_program.o
+ .debug_loc     0x00000abc       0x3e ./src/LKS_CAMERA_program.o
+ .debug_loc     0x00000afa      0x914 ./src/MGPIO_program.o
+ .debug_loc     0x0000140e      0x1be ./src/MNVIC_program.o
+ .debug_loc     0x000015cc      0x1d1 ./src/MRCC_program.o
+ .debug_loc     0x0000179d       0x21 ./src/MSYSTICK_program.o
+ .debug_loc     0x000017be       0xf4 ./src/MTIMER_program.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -4462,7 +4501,7 @@ END GROUP
  *(.debug_varnames)
 OUTPUT(ADAS_bluetooth.elf elf32-littlearm)
 
-.debug_ranges   0x00000000      0x4e0
+.debug_ranges   0x00000000      0x508
  .debug_ranges  0x00000000       0x18 ./system/src/newlib/_exit.o
  .debug_ranges  0x00000018       0x10 ./system/src/newlib/_sbrk.o
  .debug_ranges  0x00000028       0x90 ./system/src/newlib/_startup.o
@@ -4478,15 +4517,16 @@ OUTPUT(ADAS_bluetooth.elf elf32-littlearm)
  .debug_ranges  0x00000248       0x20 ./src/HIR_program.o
  .debug_ranges  0x00000268       0x40 ./src/HMOTORS_program.o
  .debug_ranges  0x000002a8       0x28 ./src/HULTRASONIC_program.o
- .debug_ranges  0x000002d0       0x48 ./src/MGPIO_program.o
- .debug_ranges  0x00000318       0x38 ./src/MNVIC_program.o
- .debug_ranges  0x00000350       0x38 ./src/MRCC_program.o
- .debug_ranges  0x00000388       0x70 ./src/MSYSTICK_program.o
- .debug_ranges  0x000003f8       0x78 ./src/MTIMER_program.o
- .debug_ranges  0x00000470       0x60 ./src/MUSART_program.o
- .debug_ranges  0x000004d0       0x10 ./src/main.o
+ .debug_ranges  0x000002d0       0x28 ./src/LKS_CAMERA_program.o
+ .debug_ranges  0x000002f8       0x48 ./src/MGPIO_program.o
+ .debug_ranges  0x00000340       0x38 ./src/MNVIC_program.o
+ .debug_ranges  0x00000378       0x38 ./src/MRCC_program.o
+ .debug_ranges  0x000003b0       0x70 ./src/MSYSTICK_program.o
+ .debug_ranges  0x00000420       0x78 ./src/MTIMER_program.o
+ .debug_ranges  0x00000498       0x60 ./src/MUSART_program.o
+ .debug_ranges  0x000004f8       0x10 ./src/main.o
 
-.debug_macro    0x00000000     0x3d6f
+.debug_macro    0x00000000     0x3de1
  .debug_macro   0x00000000      0x1b4 ./system/src/newlib/_exit.o
  .debug_macro   0x000001b4      0x10e ./system/src/newlib/_exit.o
  .debug_macro   0x000002c2       0x8d ./system/src/newlib/_exit.o
@@ -4534,19 +4574,21 @@ OUTPUT(ADAS_bluetooth.elf elf32-littlearm)
  .debug_macro   0x0000378a       0x5b ./src/HULTRASONIC_program.o
  .debug_macro   0x000037e5       0x16 ./src/HULTRASONIC_program.o
  .debug_macro   0x000037fb       0x1c ./src/HULTRASONIC_program.o
- .debug_macro   0x00003817       0x3f ./src/MGPIO_program.o
- .debug_macro   0x00003856       0x3a ./src/MGPIO_program.o
- .debug_macro   0x00003890       0x40 ./src/MNVIC_program.o
- .debug_macro   0x000038d0       0x28 ./src/MNVIC_program.o
- .debug_macro   0x000038f8       0x3e ./src/MRCC_program.o
- .debug_macro   0x00003936       0xb2 ./src/MRCC_program.o
- .debug_macro   0x000039e8       0x2e ./src/MRCC_program.o
- .debug_macro   0x00003a16       0x3e ./src/MSYSTICK_program.o
- .debug_macro   0x00003a54       0x52 ./src/MSYSTICK_program.o
- .debug_macro   0x00003aa6       0x22 ./src/MSYSTICK_program.o
- .debug_macro   0x00003ac8       0x3f ./src/MTIMER_program.o
- .debug_macro   0x00003b07      0x142 ./src/MTIMER_program.o
- .debug_macro   0x00003c49       0x49 ./src/MUSART_program.o
- .debug_macro   0x00003c92       0x28 ./src/MUSART_program.o
- .debug_macro   0x00003cba       0x16 ./src/MUSART_program.o
- .debug_macro   0x00003cd0       0x9f ./src/main.o
+ .debug_macro   0x00003817       0x5c ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00003873       0x16 ./src/LKS_CAMERA_program.o
+ .debug_macro   0x00003889       0x3f ./src/MGPIO_program.o
+ .debug_macro   0x000038c8       0x3a ./src/MGPIO_program.o
+ .debug_macro   0x00003902       0x40 ./src/MNVIC_program.o
+ .debug_macro   0x00003942       0x28 ./src/MNVIC_program.o
+ .debug_macro   0x0000396a       0x3e ./src/MRCC_program.o
+ .debug_macro   0x000039a8       0xb2 ./src/MRCC_program.o
+ .debug_macro   0x00003a5a       0x2e ./src/MRCC_program.o
+ .debug_macro   0x00003a88       0x3e ./src/MSYSTICK_program.o
+ .debug_macro   0x00003ac6       0x52 ./src/MSYSTICK_program.o
+ .debug_macro   0x00003b18       0x22 ./src/MSYSTICK_program.o
+ .debug_macro   0x00003b3a       0x3f ./src/MTIMER_program.o
+ .debug_macro   0x00003b79      0x142 ./src/MTIMER_program.o
+ .debug_macro   0x00003cbb       0x49 ./src/MUSART_program.o
+ .debug_macro   0x00003d04       0x28 ./src/MUSART_program.o
+ .debug_macro   0x00003d2c       0x16 ./src/MUSART_program.o
+ .debug_macro   0x00003d42       0x9f ./src/main.o

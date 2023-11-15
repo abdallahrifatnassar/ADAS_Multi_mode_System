@@ -49,8 +49,8 @@ void HMOTOR_voidMoveForward(void)
 	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_LOW);
 	
 	/*Motor 2*/
-	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);
+	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_LOW);
+	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_HIGH);
 }
 
 void HMOTOR_voidMoveBackward(void)
@@ -64,8 +64,8 @@ void HMOTOR_voidMoveBackward(void)
 	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_HIGH);
 	
 	/*Motor 2*/
-	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_LOW);
-	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_HIGH);
+	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_HIGH);
+	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);
 }
 
 void HMOTOR_voidStop(void)
@@ -85,8 +85,9 @@ void HMOTOR_voidMoveRight(void)
 	MGPIO_voidSetPinValue(MOTOR_IN1_PORT_PIN,MGPIO_PIN_HIGH);
 	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_LOW);
 	
-	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_LOW);
-	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_HIGH);
+	/*Motor 2*/
+	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_HIGH);
+	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);
 }
 
 void HMOTOR_voidMoveLeft(void)
@@ -96,8 +97,8 @@ void HMOTOR_voidMoveLeft(void)
 	MGPIO_voidSetPinValue(MOTOR_IN1_PORT_PIN,MGPIO_PIN_LOW);
 	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_HIGH);
 	
-	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_HIGH);
-	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);
+	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_LOW);
+	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_HIGH);
 }
 
 void HMOTOR_voidSetSpeed(u16 Copy_u16Speed)
