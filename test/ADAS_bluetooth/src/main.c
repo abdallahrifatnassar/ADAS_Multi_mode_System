@@ -23,6 +23,8 @@
 #include "ACC_interface.h"
 #include "ALKA_IR_interface.h"
 #include "LDW_interface.h"
+#include "AALC_interface.h"
+#include "LKS_CAMERA_interface.h"
 
 
 u32	G_u32Read;
@@ -79,11 +81,13 @@ int main ()
 	HMOTOR_voidSetSpeed(500);
 
 	ALKA_IR_Init();
+	LKS_Camera_App_Init();
 
 	while (1)
 	{
 
 		G_u32Read = MUSART_voidReadData();
+		AALC_voidMode();
 		switch	(G_u32Read)
 		{
 		case	'F'	:
@@ -121,8 +125,28 @@ int main ()
 				{
 					break;
 				}
+				AALC_voidMode();
 				ACC_voidMode();
 				MSYSTICK_voidSetDelay(15000);
+			}
+			break;
+		}
+		case	'V'	:
+		{
+			/*LKA	With	LDW*/
+			while(1)
+			{
+				G_u32Read=MUSART_voidReadData_1();
+				if(G_u32Read==0)
+				{
+
+				}
+				else
+				{
+					break;
+				}
+				AALC_voidMode();
+				LKS_Camera_App();
 			}
 			break;
 		}
@@ -140,7 +164,8 @@ int main ()
 				{
 					break;
 				}
-				LKS_Camera_App();
+				AALC_voidMode();
+				APP_LKA();
 			}
 			break;
 		}

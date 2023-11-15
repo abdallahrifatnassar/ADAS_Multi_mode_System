@@ -4,9 +4,11 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/AALC_program.c \
 ../src/ACC_program.c \
 ../src/ALKA_IR.c \
 ../src/HIR_program.c \
+../src/HLDR_program.c \
 ../src/HMOTORS_program.c \
 ../src/HULTRASONIC_program.c \
 ../src/LDW_program.c \
@@ -20,9 +22,11 @@ C_SRCS += \
 ../src/main.c 
 
 OBJS += \
+./src/AALC_program.o \
 ./src/ACC_program.o \
 ./src/ALKA_IR.o \
 ./src/HIR_program.o \
+./src/HLDR_program.o \
 ./src/HMOTORS_program.o \
 ./src/HULTRASONIC_program.o \
 ./src/LDW_program.o \
@@ -36,9 +40,11 @@ OBJS += \
 ./src/main.o 
 
 C_DEPS += \
+./src/AALC_program.d \
 ./src/ACC_program.d \
 ./src/ALKA_IR.d \
 ./src/HIR_program.d \
+./src/HLDR_program.d \
 ./src/HMOTORS_program.d \
 ./src/HULTRASONIC_program.d \
 ./src/LDW_program.d \
