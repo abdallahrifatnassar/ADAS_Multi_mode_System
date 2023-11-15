@@ -23,7 +23,7 @@
  * @return None
  *
 /--------------------------------------------------------------------------------------------------------------------*/
-void LKS_Camera_App_Init();
+void LKS_Camera_App_Init(void);
 
 /**
  * @brief Read the camera sensor on the right side of the car.
@@ -32,7 +32,7 @@ void LKS_Camera_App_Init();
  *
  * @return A value of 1 if the camera sensor is detecting a Lane , and 0 otherwise.
  */
-u8  LKS_Camera_Read_Right();
+u8  LKS_Camera_Read_Right(void);
 
 /**
  * @brief Read the camera sensor on the Left side of the car.
@@ -41,7 +41,7 @@ u8  LKS_Camera_Read_Right();
  *
  * @return A value of 1 if the camera sensor is detecting a Lane , and 0 otherwise.
  */
-u8  LKS_Camera_Read_Left();
+u8  LKS_Camera_Read_Left(void);
 
 /**
  * @brief This function is the main application loop for the LKS Camera.

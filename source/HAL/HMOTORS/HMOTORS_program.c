@@ -11,28 +11,28 @@
 #include "LBIT_math.h"
 #include "MGPIO_interface.h"
 #include "MTIMER_interface.h"
-#include "HMOTOR_interface.h"
-#include "HMOTOR_private.h"
-#include "HMOTOR_config.h"
+#include "HMOTORS_interface.h"
+#include "HMOTORS_private.h"
+#include "HMOTORS_config.h"
 
 
 void HMOTOR_voidInit(void)
 {
 	/*Set Motor control Direction pins to output Pushpull (IN1->4) */
 	
-	MGPIO_voidSetPinMode(MOTOR_IN1_PORT_PIN,MGPIO_PIN_OUPUT);
+	MGPIO_voidSetPinMode(MOTOR_IN1_PORT_PIN,MGPIO_PIN_OUTPUT);
 	MGPIO_voidSetOutputPinType(MOTOR_IN1_PORT_PIN,MGPIO_PIN_PUSH_PULL);
 	MGPIO_voidSetOutputPinSpeed(MOTOR_IN1_PORT_PIN,MGPIO_MEDIUMSPEED);
 													 
-	MGPIO_voidSetPinMode(MOTOR_IN2_PORT_PIN,MGPIO_PIN_OUPUT);
+	MGPIO_voidSetPinMode(MOTOR_IN2_PORT_PIN,MGPIO_PIN_OUTPUT);
 	MGPIO_voidSetOutputPinType(MOTOR_IN2_PORT_PIN,MGPIO_PIN_PUSH_PULL);
 	MGPIO_voidSetOutputPinSpeed(MOTOR_IN2_PORT_PIN,MGPIO_MEDIUMSPEED);
 													 
-	MGPIO_voidSetPinMode(MOTOR_IN3_PORT_PIN,MGPIO_PIN_OUPUT);
+	MGPIO_voidSetPinMode(MOTOR_IN3_PORT_PIN,MGPIO_PIN_OUTPUT);
 	MGPIO_voidSetOutputPinType(MOTOR_IN3_PORT_PIN,MGPIO_PIN_PUSH_PULL);
 	MGPIO_voidSetOutputPinSpeed(MOTOR_IN3_PORT_PIN,MGPIO_MEDIUMSPEED);
 													 
-	MGPIO_voidSetPinMode(MOTOR_IN4_PORT_PIN,MGPIO_PIN_OUPUT);
+	MGPIO_voidSetPinMode(MOTOR_IN4_PORT_PIN,MGPIO_PIN_OUTPUT);
 	MGPIO_voidSetOutputPinType(MOTOR_IN4_PORT_PIN,MGPIO_PIN_PUSH_PULL);
 	MGPIO_voidSetOutputPinSpeed(MOTOR_IN4_PORT_PIN,MGPIO_MEDIUMSPEED);
 	
@@ -85,6 +85,7 @@ void HMOTOR_voidMoveRight(void)
 	MGPIO_voidSetPinValue(MOTOR_IN1_PORT_PIN,MGPIO_PIN_HIGH);
 	MGPIO_voidSetPinValue(MOTOR_IN2_PORT_PIN,MGPIO_PIN_LOW);
 	
+	/*Motor 2*/
 	MGPIO_voidSetPinValue(MOTOR_IN3_PORT_PIN,MGPIO_PIN_HIGH);
 	MGPIO_voidSetPinValue(MOTOR_IN4_PORT_PIN,MGPIO_PIN_LOW);
 }
