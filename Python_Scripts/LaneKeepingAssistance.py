@@ -68,7 +68,7 @@ def GetLaneCurve(img,display=2):
 
 
 if __name__ == '__main__':
-    cap = cv2.VideoCapture('vid2.mp4');
+    cap = cv2.VideoCapture('D://iti//GP//ADAS_Multi_mode_System//Python_Scripts//vid2.mp4');
     intialTrackBarVal = [40, 80, 20, 214];
     utils.initializeTrackbars(intialTrackBarVal);
     while True:
