@@ -20,6 +20,7 @@
 #include "HMOTORS_interface.h"
 #include "HULTRASONIC_interface.h"
 #include "HIR_interface.h"
+#include "HLDR_interface.h"
 #include "ACC_interface.h"
 #include "ALKA_IR_interface.h"
 #include "LDW_interface.h"
@@ -78,7 +79,10 @@ int main ()
 	MTIMER3_voidStartTimer();
 
 
+	/* ALC PIN IN INIT*/
+	HLDR_SetPin(HLDR_PORTA,HLDR_PIN12);
 
+	/*       INITS        */
 	HMOTOR_voidInit();
 	HMOTOR_voidSetSpeed(500);
 

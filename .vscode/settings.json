@@ -4,7 +4,10 @@
         "hir_interface.h": "c",
         "hir_private.h": "c",
         "hultrasonic_interface.h": "c",
-        "lbit_math.h": "c"
+        "lbit_math.h": "c",
+        "alka_ir_interface.h": "c",
+        "hldr_interface.h": "c",
+        "mgpio_interface.h": "c"
     },
     "githubPullRequests.ignoredPullRequestBranches": [
         "master"
