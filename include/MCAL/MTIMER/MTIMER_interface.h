@@ -122,21 +122,84 @@ void MTIMER3_voidSetPreScaler(u16 Copy_u16PrescalerValue);
 
 
 /*****************APIS Made By FahkerEldin ********************/
+/**
+ * @brief Initialize the specified MTIMER2 channel.
+ *
+ * This function configures the MTIMER2 channel in edge-aligned mode with the
+ * counter counting up. It also enables both capture edges on the specified
+ * channel.
+ *
+ * @param Copy_u8ChannelId The MTIMER2 channel to initialize.
+ *
+ * @return None
+ */
 void MTIMER2_voidInit(u8 Copy_u8ChannelId);
 
+/**
+ * @brief Start the MTIMER2 counter.
+ *
+ * This function enables the MTIMER2 counter.
+ *
+ * @return None
+ */
 void MTIMER2_voidStartTimer(void);
 
+/**
+ * @brief Stop the MTIMER2 counter.
+ *
+ * This function disables the MTIMER2 counter.
+ *
+ * @return None
+ */
 void MTIMER2_voidStopTimer(void);
 
-u32	 MTIMER2_u32CaptureValue(u8 Copy_u8ChannelId);
+/**
+ * @brief Get the captured value on the specified MTIMER2 channel.
+ *
+ * This function returns the captured value on the specified MTIMER2 channel.
+ *
+ * @param Copy_u8ChannelId The MTIMER2 channel to get the captured value for.
+ *
+ * @return The captured value on the specified MTIMER2 channel.
+ */
+u32 MTIMER2_u32CaptureValue(u8 Copy_u8ChannelId);
 
+/**
+ * @brief Enable the capture interrupt on the specified MTIMER2 channel.
+ *
+ * This function enables the capture interrupt on the specified MTIMER2 channel.
+ *
+ * @return None
+ */
 void MTIMER2_voidEnableInterrupt(void);
 
+/**
+ * @brief Disable the capture interrupt on the specified MTIMER2 channel.
+ *
+ * This function disables the capture interrupt on the specified MTIMER2 channel.
+ *
+ * @return None
+ */
 void MTIMER2_voidDisableInterrupt(void);
 
-
+/**
+ * @brief Set the MTIMER2 prescaler.
+ *
+ * This function sets the MTIMER2 prescaler.
+ *
+ * @param Copy_u16PrescalerValue The MTIMER2 prescaler value to set.
+ *
+ * @return None
+ */
 void MTIMER2_voidSetPreScaler(u16 Copy_u16PrescalerValue);
 
+/**
+ * @brief Clear the MTIMER2 counter.
+ *
+ * This function clears the MTIMER2 counter.
+ *
+ * @return None
+ */
 void MTIMER2_voidClearCount(void);
 
 

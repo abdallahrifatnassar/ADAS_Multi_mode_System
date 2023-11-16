@@ -35,10 +35,45 @@
 #define HIR_PIN15 15
 /************************/
 
+/*--------------------------------------------------------------------------------------------------------------------
+ * @brief Initialize the specified HIR peripheral.
+ *
+ * This function first initializes the MRCC, then enables the peripheral clock.
+ *
+ * @param Copy_u8Port The port number of the HIR peripheral to initialize.
+ *
+ * @return None
+ *
+/*--------------------------------------------------------------------------------------------------------------------*/
 void HIR_voidInit(u8 Copy_u8Port);
 
+
+/*--------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Sets the specified pin of the HIR peripheral as input with pull-up resistor.
+ *
+ * @param Copy_u8Port The port number of the HIR peripheral to set the pin for.
+ * @param Copy_u8Pin The pin number to set.
+ *
+ * @return None
+ */
+/*--------------------------------------------------------------------------------------------------------------------*/
 void HIR_SetPin(u8 Copy_u8Port, u8 Copy_u8Pin);
 
+
+/*--------------------------------------------------------------------------------------------------------------------
+/**
+ /**
+ * @brief Read the value of the specified HIR pin.
+ *
+ * This function reads the value of the specified pin of the HIR peripheral.
+ *
+ * @param Copy_u8Port The port number of the HIR peripheral to read the pin for.
+ * @param Copy_u8Pin The pin number to read.
+ *
+ * @return The value of the pin.
+ */
+/*--------------------------------------------------------------------------------------------------------------------*/
 u8 HIR_u8ReadIR(u8 Copy_u8Port, u8 Copy_u8Pin);
 
 #endif

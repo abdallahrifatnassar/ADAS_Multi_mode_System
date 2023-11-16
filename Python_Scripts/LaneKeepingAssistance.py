@@ -1,10 +1,13 @@
 import cv2
 import numpy as np
 import utils
-
+import gpio_config as gc
 
 curveList = [];
 avgVal = 10;
+pin_right =17;
+pin_left = 3;
+error = 5;
 
 def GetLaneCurve(img,display=2):
 
@@ -27,11 +30,21 @@ def GetLaneCurve(img,display=2):
 
     ### STEP 4
     curveList.append (CurveRaw);
-    
+
     if len(curveList)>avgVal:
         curveList.pop(0);
     curve = int(sum(curveList)/len(curveList));
-    
+
+    if (curve < -(error)):
+        gc.turn_off(pin_right)
+        gc.turn_on(pin_left)
+    elif (curve > error):
+        gc.turn_off(pin_left)
+        gc.turn_on(pin_right)
+    else:
+        gc.turn_on(pin_right)
+        gc.turn_on(pin_left)
+
     ### STEP 5
     if display != 0:
        imgInvWarp = utils.warpImg(imgwarp, points, wT, hT,inv = True)
@@ -68,7 +81,15 @@ def GetLaneCurve(img,display=2):
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     cap = cv2.VideoCapture('D://iti//GP//ADAS_Multi_mode_System//Python_Scripts//vid2.mp4');
+=======
+
+    gc.setup_output_pin(pin_right)
+    gc.setup_output_pin(pin_left)
+
+    cap = cv2.VideoCapture(0);
+>>>>>>> 16ad98d8ed849aa11cff1170d788afa3b7305391
     intialTrackBarVal = [40, 80, 20, 214];
     utils.initializeTrackbars(intialTrackBarVal);
     while True:

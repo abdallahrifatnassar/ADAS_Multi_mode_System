@@ -10,7 +10,7 @@
 #ifndef _MUSART_CONFIG_H_
 #define _MUSART_CONFIG_H_
 
-#define BAUD_RATE_9600  (0x0341UL)
+#define BAUD_RATE_9600 (0x0341UL)
 #define BAUD_RATE_115200 (0x0045UL)
 
 #endif // _MUSART_CONFIG_H_
